@@ -2,4 +2,8 @@
 <resources>
     <string
         name="app_name">Лояльность</string>
+    <string
+        name="main_tab_colleagues">Коллеги</string>
+    <string
+        name="main_tab_profile">Профиль</string>
 </resources>

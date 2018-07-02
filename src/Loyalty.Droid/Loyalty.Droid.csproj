@@ -115,6 +115,8 @@
     <Compile Include="SplashScreen.cs" />
     <Compile Include="Views\Main\MainActivity.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
+    <Compile Include="Views\Colleagues\ColleaguesFragment.cs" />
+    <Compile Include="Views\Profile\ProfileFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -127,6 +129,9 @@
     <AndroidResource Include="Resources\values\strings.xml" />
     <AndroidResource Include="Resources\values\theme.xml" />
     <AndroidResource Include="Resources\layout\activity_main.axml" />
+    <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\drawable\bottom_navigation_item_background_colors.xml" />
+    <AndroidResource Include="Resources\menu\menu_bottom_navigation.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\mipmap-hdpi\" />
@@ -137,6 +142,9 @@
     <Folder Include="Resources\drawable\" />
     <Folder Include="Views\" />
     <Folder Include="Views\Main\" />
+    <Folder Include="Views\Profile\" />
+    <Folder Include="Views\Colleagues\" />
+    <Folder Include="Resources\menu\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Loyalty.Core\Loyalty.Core.csproj">

@@ -10,5 +10,11 @@
   <ItemGroup>
     <Folder Include="ViewModels\" />
     <Folder Include="ViewModels\Main\" />
+    <Folder Include="ViewModels\Profile\" />
+    <Folder Include="ViewModels\Colleagues\" />
+    <Folder Include="ViewModels\Colleague\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="ViewModels\Main\IMainTabViewModel.cs" />
   </ItemGroup>
 </Project>
