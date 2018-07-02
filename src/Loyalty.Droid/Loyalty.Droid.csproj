@@ -108,6 +108,12 @@
     <Reference Include="MvvmCross.Droid.Support.V7.AppCompat">
       <HintPath>..\packages\MvvmCross.Droid.Support.V7.AppCompat.6.1.2\lib\monoandroid81\MvvmCross.Droid.Support.V7.AppCompat.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.SecureStorage">
+      <HintPath>..\packages\Xam.Plugin.SecureStorage.1.0.12\lib\monoandroid81\Plugin.SecureStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Droid.Support.V7.RecyclerView">
+      <HintPath>..\packages\MvvmCross.Droid.Support.V7.RecyclerView.6.1.2\lib\monoandroid81\MvvmCross.Droid.Support.V7.RecyclerView.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
@@ -117,6 +123,10 @@
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Views\Colleagues\ColleaguesFragment.cs" />
     <Compile Include="Views\Profile\ProfileFragment.cs" />
+    <Compile Include="Views\Auth\AuthFragment.cs" />
+    <Compile Include="Services\Implementations\UserDialog.cs" />
+    <Compile Include="Setup.cs" />
+    <Compile Include="MainApplication.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -132,6 +142,18 @@
     <AndroidResource Include="Resources\values\colors.xml" />
     <AndroidResource Include="Resources\drawable\bottom_navigation_item_background_colors.xml" />
     <AndroidResource Include="Resources\menu\menu_bottom_navigation.xml" />
+    <AndroidResource Include="Resources\layout\fragment_profile.axml" />
+    <AndroidResource Include="Resources\layout\fragment_colleagues.axml" />
+    <AndroidResource Include="Resources\layout\fragment_auth.axml" />
+    <AndroidResource Include="Resources\values\dimens.xml" />
+    <AndroidResource Include="Resources\values\styles.xml" />
+    <AndroidResource Include="Resources\font\roboto.xml" />
+    <AndroidResource Include="Resources\font\roboto_bold.ttf" />
+    <AndroidResource Include="Resources\font\roboto_italic.ttf" />
+    <AndroidResource Include="Resources\font\roboto_light.ttf" />
+    <AndroidResource Include="Resources\font\roboto_medium.ttf" />
+    <AndroidResource Include="Resources\font\roboto_regular.ttf" />
+    <AndroidResource Include="Resources\drawable\control_button_base.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\mipmap-hdpi\" />
@@ -145,6 +167,10 @@
     <Folder Include="Views\Profile\" />
     <Folder Include="Views\Colleagues\" />
     <Folder Include="Resources\menu\" />
+    <Folder Include="Views\Auth\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Implementations\" />
+    <Folder Include="Resources\font\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Loyalty.Core\Loyalty.Core.csproj">

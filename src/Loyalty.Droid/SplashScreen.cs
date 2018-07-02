@@ -5,7 +5,7 @@ using MvvmCross.Droid.Support.V7.AppCompat;
 namespace Loyalty.Droid
 {
     [Activity(
-        Label = "Loyalty.Droid"
+        Label = "@string/app_name"
         , MainLauncher = true
         , NoHistory = true
         , ScreenOrientation = ScreenOrientation.Portrait)]
@@ -14,7 +14,7 @@ namespace Loyalty.Droid
         public SplashScreen()
             : base (Resource.Layout.activity_splash)
         {
-
+            
         }
     }
 }

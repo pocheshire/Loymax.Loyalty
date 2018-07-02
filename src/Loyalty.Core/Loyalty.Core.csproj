@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="MvvmCross" Version="6.1.2" />
+    <PackageReference Include="Xam.Plugin.SecureStorage" Version="1.0.12" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />
@@ -13,8 +14,14 @@
     <Folder Include="ViewModels\Profile\" />
     <Folder Include="ViewModels\Colleagues\" />
     <Folder Include="ViewModels\Colleague\" />
+    <Folder Include="Services\" />
+    <Folder Include="ViewModels\Auth\" />
+    <Folder Include="Services\Implementations\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="ViewModels\Main\IMainTabViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Loyalty.API\Loyalty.API.csproj" />
   </ItemGroup>
 </Project>

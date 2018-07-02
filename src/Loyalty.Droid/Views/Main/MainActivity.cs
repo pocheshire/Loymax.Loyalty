@@ -1,5 +1,7 @@
 ﻿using Android.App;
 using Android.OS;
+using Android.Support.Design.Widget;
+using Android.Views;
 using Loyalty.Core.ViewModels.Main;
 using MvvmCross.Droid.Support.V7.AppCompat;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
@@ -8,12 +10,42 @@ namespace Loyalty.Droid.Views.Main
 {
     [MvxActivityPresentation]
     [Activity]
-    public class MainActivity : MvxAppCompatActivity<MainViewModel>
+    public class MainActivity : MvxAppCompatActivity<MainViewModel>, BottomNavigationView.IOnNavigationItemSelectedListener, BottomNavigationView.IOnNavigationItemReselectedListener
     {
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+
             SetContentView(Resource.Layout.activity_main);
+
+            var bottomNavigationView = FindViewById<BottomNavigationView>(Resource.Id.bottom_navigation_view);
+
+            bottomNavigationView.SetOnNavigationItemSelectedListener(this);
+            bottomNavigationView.SetOnNavigationItemReselectedListener(this);
+        }
+
+        public bool OnNavigationItemSelected(IMenuItem item)
+        {
+            var result = false;
+
+            switch (item.ItemId)
+            {
+                case Resource.Id.main_tab_colleagues:
+                    result = true;
+                    ViewModel.SelectionChangedCommand.Execute(0);
+                    break;
+                case Resource.Id.main_tab_profile:
+                    result = true;
+                    ViewModel.SelectionChangedCommand.Execute(1);
+                    break;
+            }
+
+            return result;
+        }
+
+        public void OnNavigationItemReselected(IMenuItem item)
+        {
+            
         }
     }
 }

@@ -1,5 +1,19 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <resources>
     <color
-        name="colorAccent">#0A8FC4</color>
+        name="accent">#0A8FC4</color>
+    <color
+        name="white">#FFFFFF</color>
+    <color
+        name="white_opacity50">#80FFFFFF</color>
+    <color
+        name="textBase">#1E2C3A</color>
+    <color
+        name="placeholder">#DBE1E7</color>
+    <color
+        name="disabledControl">#E3EBF3</color>
+    <color
+        name="highlightedControl">#0A8FC4</color>
+    <color
+        name="invalid">#EA0048</color>
 </resources>

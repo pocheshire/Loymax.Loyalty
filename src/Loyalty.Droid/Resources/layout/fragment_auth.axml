@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    <LinearLayout
+        android:id="@+id/inputs_linear_layout_container"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/inputLayout_height"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/external_margins"
+            android:layout_marginRight="@dimen/external_margins"
+            android:theme="@style/AppTheme.Control.TextInputLayout"
+            local:errorEnabled="true"
+            local:errorTextAppearance="@style/AppTheme.Control.TextInputLayout.ErrorTextAppearance"
+            local:hintEnabled="true"
+            local:hintTextAppearance="@style/AppTheme.Control.TextInputLayout.HintTextAppearance">
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:maxLines="1"
+                android:inputType="text"
+                android:hint="@string/auth_username_hint"
+                local:MvxBind="Text Username" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/inputLayout_height"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/internal_margins"
+            android:layout_marginLeft="@dimen/external_margins"
+            android:layout_marginRight="@dimen/external_margins"
+            android:theme="@style/AppTheme.Control.TextInputLayout"
+            local:errorEnabled="true"
+            local:errorTextAppearance="@style/AppTheme.Control.TextInputLayout.ErrorTextAppearance"
+            local:hintEnabled="true"
+            local:hintTextAppearance="@style/AppTheme.Control.TextInputLayout.HintTextAppearance">
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:maxLines="1"
+                android:inputType="text"
+                android:hint="@string/auth_password_hint"
+                local:MvxBind="Text Password" />
+        </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
+    <Button
+        style="@style/AppTheme.Control.Button.Base"
+        android:layout_below="@+id/inputs_linear_layout_container"
+        android:layout_marginRight="@dimen/external_margins"
+        android:layout_marginTop="@dimen/external_margins"
+        android:layout_alignParentRight="true"
+        android:text="@string/auth_sign_in" />
+</RelativeLayout>

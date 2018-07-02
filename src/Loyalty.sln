@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loyalty.Droid", "Loyalty.Dr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loyalty.iOS", "Loyalty.iOS\Loyalty.iOS.csproj", "{A405EB6B-EDED-47C1-9A87-AE1802E45967}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loyalty.API", "Loyalty.API\Loyalty.API.csproj", "{5751C6ED-E600-47E0-8234-873CB0F5FEAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,5 +49,17 @@ Global
 		{A405EB6B-EDED-47C1-9A87-AE1802E45967}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 		{A405EB6B-EDED-47C1-9A87-AE1802E45967}.Debug|iPhone.ActiveCfg = Debug|iPhone
 		{A405EB6B-EDED-47C1-9A87-AE1802E45967}.Debug|iPhone.Build.0 = Debug|iPhone
+		{5751C6ED-E600-47E0-8234-873CB0F5FEAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5751C6ED-E600-47E0-8234-873CB0F5FEAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5751C6ED-E600-47E0-8234-873CB0F5FEAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5751C6ED-E600-47E0-8234-873CB0F5FEAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5751C6ED-E600-47E0-8234-873CB0F5FEAB}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{5751C6ED-E600-47E0-8234-873CB0F5FEAB}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{5751C6ED-E600-47E0-8234-873CB0F5FEAB}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{5751C6ED-E600-47E0-8234-873CB0F5FEAB}.Release|iPhone.Build.0 = Release|Any CPU
+		{5751C6ED-E600-47E0-8234-873CB0F5FEAB}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{5751C6ED-E600-47E0-8234-873CB0F5FEAB}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{5751C6ED-E600-47E0-8234-873CB0F5FEAB}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{5751C6ED-E600-47E0-8234-873CB0F5FEAB}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Loyalty.Core.ViewModels.Main;
 using MvvmCross.ViewModels;
-using Loyalty.Core.ViewModels.Main;
+using MvvmCross;
+using Loyalty.Core.Services;
+using Loyalty.Core.Services.Implementations;
 
 namespace Loyalty.Core
 {
@@ -8,6 +10,10 @@ namespace Loyalty.Core
     {
         public override void Initialize()
         {
+            new API.App().Initialize();
+
+            Mvx.LazyConstructAndRegisterSingleton<ISessionService, SessionService>();
+
             RegisterAppStart<MainViewModel>();
         }
     }

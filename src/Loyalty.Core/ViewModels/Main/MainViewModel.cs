@@ -1,10 +1,12 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using MvvmCross.Commands;
-using MvvmCross.ViewModels;
-using System.Collections.Generic;
+using Loyalty.Core.Services;
+using Loyalty.Core.ViewModels.Auth;
 using Loyalty.Core.ViewModels.Colleagues;
 using Loyalty.Core.ViewModels.Profile;
+using MvvmCross;
+using MvvmCross.Commands;
+using MvvmCross.ViewModels;
 
 namespace Loyalty.Core.ViewModels.Main
 {
@@ -41,6 +43,15 @@ namespace Loyalty.Core.ViewModels.Main
             set => SetProperty(ref _items, value, nameof(Items));
         }
 
+        ISessionService SessionService { get; }
+
+        private bool _loading;
+        public bool Loading
+        {
+            get => _loading;
+            set => SetProperty(ref _loading, value, nameof(Loading));
+        }
+
         #endregion
 
         #region Services
@@ -51,9 +62,10 @@ namespace Loyalty.Core.ViewModels.Main
 
         public MainViewModel()
         {
-            SelectedIndex = -1;
+            _selectedIndex = -1;
 
             Items = new List<IMvxViewModel>();
+            SessionService = Mvx.Resolve<ISessionService>();
         }
 
         #endregion
@@ -73,17 +85,30 @@ namespace Loyalty.Core.ViewModels.Main
 
         #region Public
 
-        public override Task Initialize()
+        public override async Task Initialize()
         {
+            Loading = true;
+
             Items = new List<IMvxViewModel>
             {
                 new ColleaguesViewModel(),
                 new ProfileViewModel()
             };
 
-            SelectedIndex = 0;
+            if (SessionService.IsSignedIn())
+            {
+                var started = await SessionService.StartSession();
+                if (started)
+                {
+                    Loading = false;
+                    SelectedIndex = 0;
+                    return;
+                }
+            }
 
-            return Task.CompletedTask;
+            Loading = false;
+
+            await NavigationService.Navigate<AuthViewModel>();
         }
 
         #endregion

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+<!--  Margins & Paddings  -->
+    <dimen
+        name="external_margins">16dp</dimen>
+    <dimen
+        name="internal_margins">8dp</dimen>
+<!--    -->
+<!--  Width & Height  -->
+    <dimen
+        name="inputLayout_height">66dp</dimen>
+    <dimen
+        name="button_height">52dp</dimen>
+<!--    -->
+<!--  Text sizes  -->
+    <dimen
+        name="input_hint_text_size">12sp</dimen>
+    <dimen
+        name="input_text_size">16sp</dimen>
+    <dimen
+        name="input2_text_size">14sp</dimen>
+    <dimen
+        name="input_error_text_size">12sp</dimen>
+    <dimen
+        name="button_text_size">14sp</dimen>
+<!--    -->
+</resources>
