@@ -17,6 +17,7 @@
     <Folder Include="Services\" />
     <Folder Include="ViewModels\Auth\" />
     <Folder Include="Services\Implementations\" />
+    <Folder Include="ViewModels\Colleagues\Items\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="ViewModels\Main\IMainTabViewModel.cs" />

@@ -17,8 +17,6 @@ namespace Loyalty.Core.ViewModels.Auth
         private IMvxCommand _signInCommand;
         public IMvxCommand SignInCommand => _signInCommand ?? (_signInCommand = new MvxAsyncCommand(OnSignInExecute));
 
-        internal ISessionService SessionService { get; }
-
         #endregion
 
         #region Properties
@@ -47,6 +45,8 @@ namespace Loyalty.Core.ViewModels.Auth
         #endregion
 
         #region Services
+
+        ISessionService SessionService { get; }
 
         #endregion
 

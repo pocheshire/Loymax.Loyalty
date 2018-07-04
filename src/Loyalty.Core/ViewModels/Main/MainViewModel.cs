@@ -43,8 +43,6 @@ namespace Loyalty.Core.ViewModels.Main
             set => SetProperty(ref _items, value, nameof(Items));
         }
 
-        ISessionService SessionService { get; }
-
         private bool _loading;
         public bool Loading
         {
@@ -56,16 +54,22 @@ namespace Loyalty.Core.ViewModels.Main
 
         #region Services
 
+        ISessionService SessionService { get; }
+
+        IMvxViewModelLoader ViewModelLoader { get; }
+
         #endregion
 
         #region Constructor
 
-        public MainViewModel()
+        public MainViewModel(IMvxViewModelLoader viewModelLoader)
         {
             _selectedIndex = -1;
 
             Items = new List<IMvxViewModel>();
+
             SessionService = Mvx.Resolve<ISessionService>();
+            ViewModelLoader = viewModelLoader;
         }
 
         #endregion
@@ -81,18 +85,16 @@ namespace Loyalty.Core.ViewModels.Main
         {
             Loading = true;
 
-            Items = new List<IMvxViewModel>
-            {
-                new ColleaguesViewModel(),
-                new ProfileViewModel()
-            };
-
             var started = await SessionService.StartSession();
             if (started)
             {
-                Loading = false;
+                Items = new List<IMvxViewModel>
+                {
+                    ViewModelLoader.LoadViewModel(MvxViewModelRequest.GetDefaultRequest(typeof(ColleaguesViewModel)), null),
+                    ViewModelLoader.LoadViewModel(MvxViewModelRequest.GetDefaultRequest(typeof(ProfileViewModel)), null)
+                };
+
                 SelectedIndex = 0;
-                return;
             }
 
             Loading = false;
