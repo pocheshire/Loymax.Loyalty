@@ -8,11 +8,11 @@ namespace Loyalty.Core.Services
     {
         bool IsSignedIn();
 
-        Task Init(string username, string password);
+        Task<bool> Init(string username, string password);
 
         Task<bool> StartSession();
 
-        Task StopSession();
+        Task<bool> StopSession();
 
         User GetUser();
     }

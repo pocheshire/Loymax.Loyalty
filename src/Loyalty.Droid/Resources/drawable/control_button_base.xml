@@ -3,13 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:state_focused="true"
-        android:drawable     ="@color/accent" />
+        android:drawable     ="@drawable/control_button_base_focused" />
     <item
         android:state_pressed="true"
-        android:drawable     ="@color/accent" />
+        android:drawable     ="@drawable/control_button_base_focused" />
     <item
         android:state_enabled="false"
-        android:drawable     ="@color/disabledControl" />
+        android:drawable     ="@drawable/control_button_base_disabled" />
     <item
-        android:drawable="@color/accent" />
+        android:drawable="@drawable/control_button_base_normal" />
 </selector>

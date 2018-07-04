@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Android.Content.PM;
 using Android.OS;
 using Android.Support.Design.Widget;
 using Android.Views;
@@ -9,19 +10,21 @@ using MvvmCross.Platforms.Android.Presenters.Attributes;
 namespace Loyalty.Droid.Views.Main
 {
     [MvxActivityPresentation]
-    [Activity]
+    [Activity(
+        ScreenOrientation = ScreenOrientation.Portrait
+        , Theme = "@style/AppTheme")]
     public class MainActivity : MvxAppCompatActivity<MainViewModel>, BottomNavigationView.IOnNavigationItemSelectedListener, BottomNavigationView.IOnNavigationItemReselectedListener
     {
         protected override void OnCreate(Bundle bundle)
         {
-            base.OnCreate(bundle);
-
             SetContentView(Resource.Layout.activity_main);
 
             var bottomNavigationView = FindViewById<BottomNavigationView>(Resource.Id.bottom_navigation_view);
 
             bottomNavigationView.SetOnNavigationItemSelectedListener(this);
             bottomNavigationView.SetOnNavigationItemReselectedListener(this);
+
+            base.OnCreate(bundle);
         }
 
         public bool OnNavigationItemSelected(IMenuItem item)

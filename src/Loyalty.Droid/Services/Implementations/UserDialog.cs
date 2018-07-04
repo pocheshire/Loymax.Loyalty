@@ -1,5 +1,7 @@
 ﻿using Android.Support.V7.App;
 using Loyalty.Core.Services;
+using MvvmCross;
+using MvvmCross.Platforms.Android;
 
 namespace Loyalty.Droid.Services.Implementations
 {
@@ -7,7 +9,9 @@ namespace Loyalty.Droid.Services.Implementations
     {
         public void ShowAlert(string message)
         {
-            new AlertDialog.Builder(Android.App.Application.Context)
+            var currentActivity = Mvx.Resolve<IMvxAndroidCurrentTopActivity>().Activity;
+
+            new AlertDialog.Builder(currentActivity)
                                    .SetMessage(message)
                                    .SetPositiveButton("ОК", (sender, e) => { })
                                    .Show();

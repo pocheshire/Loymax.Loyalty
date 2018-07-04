@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <resources>
+<!--  Texts  -->
+    <style
+        name="AppTheme.TextAppearance.Header5"
+        parent="">
+        <item
+            name="android:fontFamily">@font/roboto_regular</item>
+        <item
+            name="android:textSize">@dimen/text_h5</item>
+        <item
+            name="android:textColor">@color/textBase</item>
+    </style>
+<!--    -->
     <!--  Inputs  -->
     <style
         name  ="AppTheme.TextAppearance.Input"

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Loyalty.API.Services;
 using Loyalty.API.Models;
 using Plugin.SecureStorage;
+using MvvmCross.Navigation;
 
 namespace Loyalty.Core.Services.Implementations
 {
@@ -14,6 +15,7 @@ namespace Loyalty.Core.Services.Implementations
 
         IAuthService AuthService { get; }
         IUserDialog UserDialog { get; }
+        IMvxNavigationService NavigationService { get; }
 
         public SessionService(IAuthService authService, IUserDialog userDialog)
         {
@@ -21,7 +23,7 @@ namespace Loyalty.Core.Services.Implementations
             UserDialog = userDialog;
         }
 
-        public async Task Init(string username, string password)
+        public async Task<bool> Init(string username, string password)
         {
             try
             {
@@ -30,11 +32,15 @@ namespace Loyalty.Core.Services.Implementations
                 User = await AuthService.GetUser(token);
 
                 SaveToken(token);
+
+                return true;
             }
             catch (Exception ex)
             {
                 UserDialog.ShowAlert(ex.Message);
             }
+
+            return false;
         }
 
         public bool IsSignedIn()
@@ -57,12 +63,23 @@ namespace Loyalty.Core.Services.Implementations
             return result;
         }
 
-        public Task StopSession()
+        public Task<bool> StopSession()
         {
             return Task.Run(() =>
             {
-                User = null;
-                CrossSecureStorage.Current.DeleteKey(TOKEN_KEY);
+                try
+                {
+                    User = null;
+                    CrossSecureStorage.Current.DeleteKey(TOKEN_KEY);
+
+                    return true;
+                }
+                catch
+                {
+
+                }
+
+                return false;
             });
         }
 

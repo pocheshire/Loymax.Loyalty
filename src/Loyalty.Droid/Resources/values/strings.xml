@@ -7,9 +7,11 @@
     <string
         name="main_tab_profile">Профиль</string>
     <string
+        name="auth_title">Авторизация</string>
+    <string
         name="auth_username_hint">Логин</string>
     <string
-        name="auth_passworn_hint">Пароль</string>
+        name="auth_password_hint">Пароль</string>
     <string
         name="auth_sign_in">ВОЙТИ</string>
 </resources>

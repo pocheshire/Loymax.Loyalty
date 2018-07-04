@@ -77,15 +77,7 @@ namespace Loyalty.Core.ViewModels.Main
             await NavigationService.Navigate(Items[index]);
         }
 
-        #endregion
-
-        #region Protected
-
-        #endregion
-
-        #region Public
-
-        public override async Task Initialize()
+        private async Task LoadContent()
         {
             Loading = true;
 
@@ -95,20 +87,37 @@ namespace Loyalty.Core.ViewModels.Main
                 new ProfileViewModel()
             };
 
-            if (SessionService.IsSignedIn())
+            var started = await SessionService.StartSession();
+            if (started)
             {
-                var started = await SessionService.StartSession();
-                if (started)
-                {
-                    Loading = false;
-                    SelectedIndex = 0;
-                    return;
-                }
+                Loading = false;
+                SelectedIndex = 0;
+                return;
             }
 
             Loading = false;
+        }
 
-            await NavigationService.Navigate<AuthViewModel>();
+        #endregion
+
+        #region Protected
+
+        #endregion
+
+        #region Public
+
+        public override async void ViewCreated()
+        {
+            base.ViewCreated();
+
+            if (SessionService.IsSignedIn())
+                await LoadContent();
+            else
+            {
+                var result = await NavigationService.Navigate<AuthViewModel, bool>();
+                if (result)
+                    await LoadContent();
+            }
         }
 
         #endregion

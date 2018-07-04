@@ -4,6 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
+    <TextView
+        style="@style/AppTheme.TextAppearance.Header5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/auth_title"
+        android:layout_margin="@dimen/external_margins" />
     <LinearLayout
         android:id="@+id/inputs_linear_layout_container"
         android:orientation="vertical"
@@ -45,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:maxLines="1"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:hint="@string/auth_password_hint"
                 local:MvxBind="Text Password" />
         </android.support.design.widget.TextInputLayout>
@@ -56,5 +62,8 @@
         android:layout_marginRight="@dimen/external_margins"
         android:layout_marginTop="@dimen/external_margins"
         android:layout_alignParentRight="true"
-        android:text="@string/auth_sign_in" />
+        android:text="@string/auth_sign_in"
+        local:MvxBind="Click SignInCommand" />
+    <include
+        layout="@layout/include_loading" />
 </RelativeLayout>

@@ -114,6 +114,9 @@
     <Reference Include="MvvmCross.Droid.Support.V7.RecyclerView">
       <HintPath>..\packages\MvvmCross.Droid.Support.V7.RecyclerView.6.1.2\lib\monoandroid81\MvvmCross.Droid.Support.V7.RecyclerView.dll</HintPath>
     </Reference>
+    <Reference Include="MvvmCross.Plugin.Visibility">
+      <HintPath>..\packages\MvvmCross.Plugin.Visibility.6.1.2\lib\monoandroid81\MvvmCross.Plugin.Visibility.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
@@ -154,6 +157,10 @@
     <AndroidResource Include="Resources\font\roboto_medium.ttf" />
     <AndroidResource Include="Resources\font\roboto_regular.ttf" />
     <AndroidResource Include="Resources\drawable\control_button_base.xml" />
+    <AndroidResource Include="Resources\layout\include_loading.axml" />
+    <AndroidResource Include="Resources\drawable\control_button_base_focused.xml" />
+    <AndroidResource Include="Resources\drawable\control_button_base_disabled.xml" />
+    <AndroidResource Include="Resources\drawable\control_button_base_normal.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\mipmap-hdpi\" />

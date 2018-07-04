@@ -8,7 +8,8 @@ namespace Loyalty.Droid
         Label = "@string/app_name"
         , MainLauncher = true
         , NoHistory = true
-        , ScreenOrientation = ScreenOrientation.Portrait)]
+        , ScreenOrientation = ScreenOrientation.Portrait
+        , Theme = "@style/AppTheme")]
     public class SplashScreen : MvxSplashScreenAppCompatActivity<MvxAppCompatSetup<Core.App>, Core.App>
     {
         public SplashScreen()

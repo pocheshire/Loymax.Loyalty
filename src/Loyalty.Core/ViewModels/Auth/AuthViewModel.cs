@@ -6,7 +6,7 @@ using MvvmCross.ViewModels;
 
 namespace Loyalty.Core.ViewModels.Auth
 {
-    public class AuthViewModel : MvxViewModel
+    public class AuthViewModel : MvxViewModelResult<bool>
     {
         #region Fields
 
@@ -37,6 +37,13 @@ namespace Loyalty.Core.ViewModels.Auth
             set => SetProperty(ref _password, value, nameof(Password));
         }
 
+        private bool _loading;
+        public bool Loading
+        {
+            get => _loading;
+            set => SetProperty(ref _loading, value, nameof(Loading));
+        }
+
         #endregion
 
         #region Services
@@ -54,9 +61,16 @@ namespace Loyalty.Core.ViewModels.Auth
 
         #region Private
 
-        private Task OnSignInExecute()
+        private async Task OnSignInExecute()
         {
-            return SessionService.Init(Username, Password);
+            Loading = true;
+
+            var result = await SessionService.Init(Username, Password);
+
+            Loading = false;
+
+            if (result)
+                await NavigationService.Close(this, true);
         }
 
         #endregion
