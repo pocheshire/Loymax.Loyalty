@@ -8,13 +8,14 @@ namespace Loyalty.API
 {
     public class App : MvxApplication
     {
-        const bool USE_MOCKS = true;
+        bool USE_MOCKS => true;
         
         public override void Initialize()
         {
             if (USE_MOCKS)
             {
                 Mvx.RegisterType<IAuthService>(() => new MockAuthService());
+                Mvx.RegisterType<IColleaguesService>(() => new MockColleaguesService());
             }
             else
             {

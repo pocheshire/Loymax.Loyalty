@@ -10,9 +10,11 @@
     <dimen
         name="inputLayout_height">66dp</dimen>
     <dimen
-        name="button_height">48dp</dimen>
+        name="button_height">52dp</dimen>
     <dimen
         name="loader_height">50dp</dimen>
+    <dimen
+        name="collegues_item_imageSize">80dp</dimen>
 <!--    -->
 <!--  Text sizes  -->
     <dimen
@@ -33,6 +35,10 @@
         name="text_h5">24sp</dimen>
     <dimen
         name="text_h6">20sp</dimen>
+    <dimen
+        name="text_body1">16sp</dimen>
+    <dimen
+        name="text_body2">14sp</dimen>
 <!--    -->
 <!--  Corner radius  -->
     <dimen

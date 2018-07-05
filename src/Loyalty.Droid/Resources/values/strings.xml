@@ -14,4 +14,6 @@
         name="auth_password_hint">Пароль</string>
     <string
         name="auth_sign_in">ВОЙТИ</string>
+    <string
+        name="colleagues_item_give_thanks">ПОБЛАГОДАРИТЬ</string>
 </resources>

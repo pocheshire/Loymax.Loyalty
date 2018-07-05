@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Loyalty.API.Models;
 using Loyalty.API.Services;
 using Loyalty.Core.Services;
+using Loyalty.Core.ViewModels.Colleague;
 using Loyalty.Core.ViewModels.Colleagues.Items;
+using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 
 namespace Loyalty.Core.ViewModels.Colleagues
@@ -19,9 +20,19 @@ namespace Loyalty.Core.ViewModels.Colleagues
 
         #region Commands
 
+        private IMvxCommand _selectionChangedCommand;
+        public IMvxCommand SelecitonChangedCommand => _selectionChangedCommand ?? (_selectionChangedCommand = new MvxAsyncCommand<ColleagueItemVm>(OnItemSelected));
+
         #endregion
 
         #region Properties
+
+        private bool _loading;
+        public bool Loading
+        {
+            get => _loading;
+            set => SetProperty(ref _loading, value, nameof(Loading));
+        }
 
         private MvxObservableCollection<ColleagueItemVm> _items;
         public MvxObservableCollection<ColleagueItemVm> Items
@@ -29,7 +40,6 @@ namespace Loyalty.Core.ViewModels.Colleagues
             get => _items;
             set => SetProperty(ref _items, value, nameof(Items));
         }
-
 
         #endregion
 
@@ -55,6 +65,8 @@ namespace Loyalty.Core.ViewModels.Colleagues
 
         private async Task LoadContent()
         {
+            Loading = true;
+
             try
             {
                 var rawColleagues = await ColleagueService.GetColleagues();
@@ -67,9 +79,16 @@ namespace Loyalty.Core.ViewModels.Colleagues
             }
 
             _initialized = true;
+
+            Loading = false;
         }
 
-        private ColleagueItemVm SetupItem(Colleague model) => new ColleagueItemVm(model);
+        private ColleagueItemVm SetupItem(API.Models.Colleague model) => new ColleagueItemVm(model);
+
+        private Task OnItemSelected(ColleagueItemVm item)
+        {
+            return NavigationService.Navigate<ColleagueViewModel, API.Models.Colleague>(item.Model);
+        }
 
         #endregion
 
