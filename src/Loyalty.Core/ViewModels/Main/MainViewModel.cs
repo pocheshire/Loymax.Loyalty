@@ -78,7 +78,8 @@ namespace Loyalty.Core.ViewModels.Main
 
         private async void OnSelectedIndexChanged(int index)
         {
-            await NavigationService.Navigate(Items[index]);
+            if (index < Items.Count)
+                await NavigationService.Navigate(Items[index]);
         }
 
         private async Task LoadContent()

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.TextInputLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/inputLayout_height"
+    android:layout_centerVertical="true"
+    android:paddingLeft="@dimen/external_margins"
+    android:paddingRight="@dimen/external_margins"
+    android:theme="@style/AppTheme.Control.TextInputLayout"
+    local:errorEnabled="true"
+    local:errorTextAppearance="@style/AppTheme.Control.TextInputLayout.ErrorTextAppearance"
+    local:hintEnabled="true"
+    local:hintTextAppearance="@style/AppTheme.Control.TextInputLayout.HintTextAppearance">
+    <android.support.design.widget.TextInputEditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/internal_margins"
+        android:layout_marginRight="@dimen/internal_margins"
+        android:maxLines="1"
+        android:inputType="number"
+        android:hint="@string/givethanks_edittext_hint" />
+</android.support.design.widget.TextInputLayout>

@@ -1,4 +1,6 @@
-﻿using Android.OS;
+﻿using System;
+using Android.OS;
+using Android.Runtime;
 using Android.Views;
 using Loyalty.Core.ViewModels.Main;
 using Loyalty.Core.ViewModels.Profile;
@@ -11,6 +13,14 @@ namespace Loyalty.Droid.Views.Profile
     [MvxFragmentPresentation(typeof(MainViewModel), Resource.Id.content_frame, false)]
     public class ProfileFragment : MvxFragment<ProfileViewModel>
     {
+        public ProfileFragment()
+        {
+        }
+
+        protected ProfileFragment(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
+        {
+        }
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);

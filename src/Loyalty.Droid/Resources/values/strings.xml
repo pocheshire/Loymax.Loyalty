@@ -16,4 +16,8 @@
         name="auth_sign_in">ВОЙТИ</string>
     <string
         name="colleagues_item_give_thanks">ПОБЛАГОДАРИТЬ</string>
+    <string
+        name="colleague_balance">Баланс</string>
+    <string
+        name="givethanks_edittext_hint">Введите количество баллов</string>
 </resources>

@@ -13,6 +13,7 @@ namespace Loyalty.Core
             new API.App().Initialize();
 
             Mvx.LazyConstructAndRegisterSingleton<ISessionService, SessionService>();
+            Mvx.LazyConstructAndRegisterSingleton<IGiveThanksService, GiveThanksService>();
 
             RegisterAppStart<MainViewModel>();
         }

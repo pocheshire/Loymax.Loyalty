@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Support.Design.Widget;
 using Android.Views;
 using Loyalty.Core.ViewModels.Main;
+using Loyalty.Droid.Behaviors;
 using MvvmCross.Droid.Support.V7.AppCompat;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
 
@@ -23,6 +24,7 @@ namespace Loyalty.Droid.Views.Main
 
             bottomNavigationView.SetOnNavigationItemSelectedListener(this);
             bottomNavigationView.SetOnNavigationItemReselectedListener(this);
+            (bottomNavigationView.LayoutParameters as CoordinatorLayout.LayoutParams).Behavior = new BottomNavigationViewBehavior();
 
             base.OnCreate(bundle);
         }

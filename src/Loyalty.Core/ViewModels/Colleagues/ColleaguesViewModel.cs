@@ -21,7 +21,7 @@ namespace Loyalty.Core.ViewModels.Colleagues
         #region Commands
 
         private IMvxCommand _selectionChangedCommand;
-        public IMvxCommand SelecitonChangedCommand => _selectionChangedCommand ?? (_selectionChangedCommand = new MvxAsyncCommand<ColleagueItemVm>(OnItemSelected));
+        public IMvxCommand SelectionChangedCommand => _selectionChangedCommand ?? (_selectionChangedCommand = new MvxAsyncCommand<ColleagueItemVm>(OnItemSelected));
 
         #endregion
 
@@ -49,14 +49,17 @@ namespace Loyalty.Core.ViewModels.Colleagues
 
         IUserDialog UserDialog { get; }
 
+        IGiveThanksService GiveThanksService { get; }
+
         #endregion
 
         #region Constructor
 
-        public ColleaguesViewModel(IColleaguesService colleagueService, IUserDialog userDialog)
+        public ColleaguesViewModel(IColleaguesService colleagueService, IUserDialog userDialog, IGiveThanksService giveThanksService)
         {
             ColleagueService = colleagueService;
             UserDialog = userDialog;
+            GiveThanksService = giveThanksService;
         }
 
         #endregion
@@ -83,7 +86,7 @@ namespace Loyalty.Core.ViewModels.Colleagues
             Loading = false;
         }
 
-        private ColleagueItemVm SetupItem(API.Models.Colleague model) => new ColleagueItemVm(model);
+        private ColleagueItemVm SetupItem(API.Models.Colleague model) => new ColleagueItemVm(model, GiveThanksService);
 
         private Task OnItemSelected(ColleagueItemVm item)
         {

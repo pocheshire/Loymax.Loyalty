@@ -36,26 +36,11 @@
         android:ellipsize="end"
         tools:text="Техническая поддержка"
         local:MvxBind="Text RoleName" />
-    <TextView
-        style="@style/AppTheme.TextAppearance.Body2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/external_margins"
-        android:layout_marginRight="@dimen/external_margins"
-        android:layout_marginTop="@dimen/external_margins"
-        android:singleLine="true"
-        android:ellipsize="end"
-        android:text="@string/colleague_balance"
-        tools:text="Баланс" />
-    <TextView
-        style="@style/AppTheme.TextAppearance.Body1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/external_margins"
-        android:layout_marginRight="@dimen/external_margins"
-        android:layout_marginTop="@dimen/internal_margins"
-        android:singleLine="true"
-        android:ellipsize="end"
-        local:MvxBind="Text BalanceString"
-        tools:text="1 000" />
+    <Button
+        style="@style/AppTheme.Control.Button.Text"
+        android:layout_below="@+id/imageView"
+        android:paddingLeft="@dimen/external_margins"
+        android:gravity="left|center_vertical"
+        android:text="@string/colleagues_item_give_thanks"
+        local:MvxBind="Click GiveThanksCommand" />
 </LinearLayout>

@@ -40,6 +40,7 @@
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
     <JavaMaximumHeapSize></JavaMaximumHeapSize>
+    <AndroidSupportedAbis>armeabi-v7a;armeabi;arm64-v8a</AndroidSupportedAbis>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -139,6 +140,8 @@
     <Compile Include="Services\Implementations\UserDialog.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="MainApplication.cs" />
+    <Compile Include="Behaviors\BottomNavigationViewBehavior.cs" />
+    <Compile Include="Views\Colleague\ColleagueFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -154,7 +157,6 @@
     <AndroidResource Include="Resources\values\colors.xml" />
     <AndroidResource Include="Resources\drawable\bottom_navigation_item_background_colors.xml" />
     <AndroidResource Include="Resources\menu\menu_bottom_navigation.xml" />
-    <AndroidResource Include="Resources\layout\fragment_profile.axml" />
     <AndroidResource Include="Resources\layout\fragment_colleagues.axml" />
     <AndroidResource Include="Resources\layout\fragment_auth.axml" />
     <AndroidResource Include="Resources\values\dimens.xml" />
@@ -171,6 +173,9 @@
     <AndroidResource Include="Resources\drawable\control_button_base_disabled.xml" />
     <AndroidResource Include="Resources\drawable\control_button_base_normal.xml" />
     <AndroidResource Include="Resources\layout\fragment_colleagues_item.axml" />
+    <AndroidResource Include="Resources\layout\fragment_profile.axml" />
+    <AndroidResource Include="Resources\layout\fragment_colleague.axml" />
+    <AndroidResource Include="Resources\layout\include_userdialog_edittext.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\mipmap-hdpi\" />
@@ -188,6 +193,8 @@
     <Folder Include="Services\" />
     <Folder Include="Services\Implementations\" />
     <Folder Include="Resources\font\" />
+    <Folder Include="Behaviors\" />
+    <Folder Include="Views\Colleague\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Loyalty.Core\Loyalty.Core.csproj">

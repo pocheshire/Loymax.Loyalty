@@ -35,7 +35,8 @@ namespace Loyalty.API.Services.Mocks
                 Name = "Константин",
                 MiddleName = "Константинович",
                 RoleName = "Техническая поддержка",
-                Balance = 1000
+                Balance = 1000,
+                ImageUrl = "https://image.ibb.co/iS2s4y/images_2.png"
             };
         }
     }

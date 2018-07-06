@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Threading.Tasks;
+using Loyalty.Core.Services;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 
@@ -9,7 +10,7 @@ namespace Loyalty.Core.ViewModels.Colleagues.Items
         internal API.Models.Colleague Model { get; }
 
         private IMvxCommand _giveThanksCommand;
-        public IMvxCommand GiveThanksCommand => _giveThanksCommand ?? (_giveThanksCommand = new MvxCommand(OnGiveThanksExecute));
+        public IMvxCommand GiveThanksCommand => _giveThanksCommand ?? (_giveThanksCommand = new MvxAsyncCommand(OnGiveThanksExecute));
 
         public string FullName { get; }
 
@@ -17,18 +18,20 @@ namespace Loyalty.Core.ViewModels.Colleagues.Items
 
         public string ImageUrl { get; }
 
-        public ColleagueItemVm(API.Models.Colleague model)
+        IGiveThanksService GiveThanksService { get; }
+
+        public ColleagueItemVm(API.Models.Colleague model, IGiveThanksService giveThanksService)
         {
             Model = model;
-
+            GiveThanksService = giveThanksService;
             FullName = $"{model.Surname} {model.Name}";
             RoleName = model.RoleName;
             ImageUrl = model.ImageUrl;
         }
 
-        private void OnGiveThanksExecute()
+        private Task OnGiveThanksExecute()
         {
-            
+            return GiveThanksService.GiveThanks(Model);
         }
     }
 }

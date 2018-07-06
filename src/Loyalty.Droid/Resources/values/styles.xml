@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-<!--  Texts  -->
+    <!--  Texts  -->
     <style
-        name="AppTheme.TextAppearance.Header"
+        name  ="AppTheme.TextAppearance.Header"
         parent="">
         <item
             name="android:fontFamily">@font/roboto_regular</item>
@@ -10,13 +10,19 @@
             name="android:textColor">@color/textBase</item>
     </style>
     <style
-        name="AppTheme.TextAppearance.Header5"
+        name  ="AppTheme.TextAppearance.Header4"
+        parent="AppTheme.TextAppearance.Header">
+        <item
+            name="android:textSize">@dimen/text_h4</item>
+    </style>
+    <style
+        name  ="AppTheme.TextAppearance.Header5"
         parent="AppTheme.TextAppearance.Header">
         <item
             name="android:textSize">@dimen/text_h5</item>
     </style>
     <style
-        name="AppTheme.TextAppearance.Header6"
+        name  ="AppTheme.TextAppearance.Header6"
         parent="AppTheme.TextAppearance.Header">
         <item
             name="android:fontFamily">@font/roboto_medium</item>
@@ -24,7 +30,7 @@
             name="android:textSize">@dimen/text_h6</item>
     </style>
     <style
-        name="AppTheme.TextAppearance.Body"
+        name  ="AppTheme.TextAppearance.Body"
         parent="">
         <item
             name="android:fontFamily">@font/roboto_regular</item>
@@ -32,20 +38,18 @@
             name="android:textColor">@color/textBase</item>
     </style>
     <style
-        name="AppTheme.TextAppearance.Body1"
+        name  ="AppTheme.TextAppearance.Body1"
         parent="AppTheme.TextAppearance.Body">
         <item
             name="android:textSize">@dimen/text_body1</item>
     </style>
     <style
-        name="AppTheme.TextAppearance.Body1"
+        name  ="AppTheme.TextAppearance.Body2"
         parent="AppTheme.TextAppearance.Body">
         <item
             name="android:textSize">@dimen/text_body2</item>
-        <item
-            name="android:fontFamily">@font/roboto_medium</item>
     </style>
-<!--    -->
+    <!--    -->
     <!--  Inputs  -->
     <style
         name  ="AppTheme.TextAppearance.Input"
@@ -92,7 +96,7 @@
             name="android:textSize">@dimen/input_error_text_size</item>
     </style>
     <!--    -->
-<!--  Button  -->
+    <!--  Button  -->
     <style
         name  ="AppTheme.Control.Button"
         parent="">
@@ -116,7 +120,7 @@
             name="android:textColor">@color/white</item>
     </style>
     <style
-        name="AppTheme.Control.Button.Text"
+        name  ="AppTheme.Control.Button.Text"
         parent="AppTheme.Control.Button">
         <item
             name="android:layout_width">match_parent</item>
@@ -127,5 +131,5 @@
         <item
             name="android:textColor">@color/accent</item>
     </style>
-<!--    -->
+    <!--    -->
 </resources>

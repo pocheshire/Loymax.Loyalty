@@ -1,4 +1,6 @@
-﻿using Android.OS;
+﻿using System;
+using Android.OS;
+using Android.Runtime;
 using Android.Views;
 using Loyalty.Core.ViewModels.Auth;
 using Loyalty.Core.ViewModels.Main;
@@ -11,6 +13,14 @@ namespace Loyalty.Droid.Views.Auth
     [MvxFragmentPresentation(typeof(MainViewModel), Resource.Id.content_modals_frame, false)]
     public class AuthFragment : MvxFragment<AuthViewModel>
     {
+        public AuthFragment()
+        {
+        }
+
+        protected AuthFragment(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
+        {
+        }
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             base.OnCreateView(inflater, container, savedInstanceState);

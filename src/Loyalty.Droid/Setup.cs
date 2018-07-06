@@ -5,7 +5,6 @@ using Loyalty.Droid.Services.Implementations;
 using MvvmCross;
 using MvvmCross.Droid.Support.V7.AppCompat;
 using MvvmCross.Droid.Support.V7.RecyclerView;
-using MvvmCross.Logging;
 
 namespace Loyalty.Droid
 {
