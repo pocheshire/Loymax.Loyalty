@@ -33,7 +33,7 @@ namespace Loyalty.Core.Services.Implementations
                 var sum = await UserDialog.ShowDecimalPrompt(
                     $"{colleague.Surname} {colleague.Name}",
                     $"Ваш баланс {user.Balance.ToString("C0", CultureInfo.CurrentUICulture.NumberFormat)}",
-                    user.Balance > 100 ? "100" : user.Balance.ToString("C0", CultureInfo.CurrentUICulture.NumberFormat)
+                    user.Balance > 100 ? "100" : user.Balance.ToString("##", CultureInfo.CurrentUICulture.NumberFormat)
                 );
 
                 var result = false;

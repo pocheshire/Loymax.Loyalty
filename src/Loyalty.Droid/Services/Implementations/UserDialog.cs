@@ -42,8 +42,9 @@ namespace Loyalty.Droid.Services.Implementations
                                    .SetNegativeButton("ОТМЕНА", (sender, e) => { tcs.TrySetException(new OperationCanceledException()); })
                                    .SetView(Resource.Layout.include_userdialog_edittext)
                                    .Show();
-
+            
             alertDialog.FindViewById<TextInputEditText>(Resource.Id.editText).Text = text;
+            alertDialog.DismissEvent += (s, e) => tcs.TrySetException(new OperationCanceledException());
 
             return tcs.Task;
         }
