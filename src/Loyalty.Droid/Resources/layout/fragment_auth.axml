@@ -6,11 +6,13 @@
     android:background="@color/white"
     android:clickable="true">
     <TextView
-        style="@style/AppTheme.TextAppearance.Header6"
+        style="@style/AppTheme.TextAppearance.Header4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/auth_title"
-        android:layout_margin="@dimen/external_margins" />
+        android:layout_marginLeft="@dimen/external_margins"
+        android:layout_marginRight="@dimen/external_margins"
+        android:layout_marginTop="@dimen/title_top_margin" />
     <LinearLayout
         android:id="@+id/inputs_linear_layout_container"
         android:orientation="vertical"
@@ -59,10 +61,7 @@
     </LinearLayout>
     <Button
         style="@style/AppTheme.Control.Button.Base"
-        android:layout_width="match_parent"
-        android:layout_below="@+id/inputs_linear_layout_container"
-        android:layout_margin="@dimen/external_margins"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
         android:text="@string/auth_sign_in"
         local:MvxBind="Click SignInCommand" />
     <include

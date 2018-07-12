@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
+        android:id="@+id/mvxRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         local:MvxItemTemplate="@layout/fragment_colleagues_item"

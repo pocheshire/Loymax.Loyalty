@@ -10,7 +10,7 @@ using MvvmCross.Platforms.Android.Presenters.Attributes;
 
 namespace Loyalty.Droid.Views.Profile
 {
-    [MvxFragmentPresentation(typeof(MainViewModel), Resource.Id.content_frame, false)]
+    [MvxFragmentPresentation(typeof(MainViewModel), Resource.Id.content_frame, false, Resource.Animation.abc_popup_enter, Resource.Animation.abc_popup_exit)]
     public class ProfileFragment : MvxFragment<ProfileViewModel>
     {
         public ProfileFragment()

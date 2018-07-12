@@ -13,7 +13,8 @@ namespace Loyalty.Droid.Views.Main
     [MvxActivityPresentation]
     [Activity(
         ScreenOrientation = ScreenOrientation.Portrait
-        , Theme = "@style/AppTheme")]
+        , Theme = "@style/AppTheme"
+        , WindowSoftInputMode = SoftInput.AdjustResize)]
     public class MainActivity : MvxAppCompatActivity<MainViewModel>, BottomNavigationView.IOnNavigationItemSelectedListener, BottomNavigationView.IOnNavigationItemReselectedListener
     {
         protected override void OnCreate(Bundle bundle)
@@ -50,7 +51,7 @@ namespace Loyalty.Droid.Views.Main
 
         public void OnNavigationItemReselected(IMenuItem item)
         {
-            
+
         }
     }
 }

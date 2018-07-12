@@ -10,7 +10,7 @@ using MvvmCross.Platforms.Android.Presenters.Attributes;
 
 namespace Loyalty.Droid.Views.Colleagues
 {
-    [MvxFragmentPresentation(typeof(MainViewModel), Resource.Id.content_frame, false)]
+    [MvxFragmentPresentation(typeof(MainViewModel), Resource.Id.content_frame, false, Resource.Animation.abc_popup_enter, Resource.Animation.abc_popup_exit, isCacheableFragment: true)]
     public class ColleaguesFragment : MvxFragment<ColleaguesViewModel>
     {
         public ColleaguesFragment()

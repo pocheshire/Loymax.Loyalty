@@ -5,9 +5,9 @@
         name  ="AppTheme.TextAppearance.Header"
         parent="">
         <item
-            name="android:fontFamily">@font/roboto_regular</item>
+            name="android:fontFamily">@font/roboto_bold</item>
         <item
-            name="android:textColor">@color/textBase</item>
+            name="android:textColor">@color/accent</item>
     </style>
     <style
         name  ="AppTheme.TextAppearance.Header4"
@@ -77,7 +77,7 @@
         <item
             name="colorControlNormal">@color/disabledControl</item>
         <item
-            name="colorControlActivated">@color/highlightedControl</item>
+            name="colorControlActivated">@color/accent</item>
     </style>
     <style
         name  ="AppTheme.Control.TextInputLayout.HintTextAppearance"
@@ -101,7 +101,7 @@
         name  ="AppTheme.Control.Button"
         parent="">
         <item
-            name="android:layout_width">wrap_content</item>
+            name="android:layout_width">match_parent</item>
         <item
             name="android:layout_height">@dimen/button_height</item>
         <item
@@ -118,14 +118,16 @@
             name="android:background">@drawable/control_button_base</item>
         <item
             name="android:textColor">@color/white</item>
+        <item
+            name="android:layout_margin">@dimen/button_base_margins</item>
+        <item
+            name="android:stateListAnimator">@null</item>
     </style>
     <style
         name  ="AppTheme.Control.Button.Text"
         parent="AppTheme.Control.Button">
         <item
-            name="android:layout_width">match_parent</item>
-        <item
-            name="android:layout_height">@dimen/button_height</item>
+            name="android:layout_width">wrap_content</item>
         <item
             name="android:background">@null</item>
         <item

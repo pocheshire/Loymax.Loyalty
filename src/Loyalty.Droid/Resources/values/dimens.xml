@@ -2,15 +2,19 @@
 <resources>
 <!--  Margins & Paddings  -->
     <dimen
+        name="title_top_margin">32dp</dimen>
+    <dimen
+        name="button_base_margins">24dp</dimen>
+    <dimen
         name="external_margins">16dp</dimen>
     <dimen
         name="internal_margins">8dp</dimen>
 <!--    -->
 <!--  Width & Height  -->
     <dimen
-        name="inputLayout_height">66dp</dimen>
+        name="inputLayout_height">72dp</dimen>
     <dimen
-        name="button_height">48dp</dimen>
+        name="button_height">52dp</dimen>
     <dimen
         name="loader_height">50dp</dimen>
     <dimen
@@ -30,13 +34,11 @@
     <dimen
         name="button_text_size">14sp</dimen>
     <dimen
-        name="text_h3">48sp</dimen>
-    <dimen
-        name="text_h4">34sp</dimen>
+        name="text_h4">32sp</dimen>
     <dimen
         name="text_h5">24sp</dimen>
     <dimen
-        name="text_h6">20sp</dimen>
+        name="text_h6">18sp</dimen>
     <dimen
         name="text_body1">16sp</dimen>
     <dimen
@@ -44,6 +46,6 @@
 <!--    -->
 <!--  Corner radius  -->
     <dimen
-        name="button_cornerRadius">4dp</dimen>
+        name="button_cornerRadius">0dp</dimen>
 <!--    -->
 </resources>

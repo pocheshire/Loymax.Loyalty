@@ -142,6 +142,7 @@
     <Compile Include="MainApplication.cs" />
     <Compile Include="Behaviors\BottomNavigationViewBehavior.cs" />
     <Compile Include="Views\Colleague\ColleagueFragment.cs" />
+    <Compile Include="Controls\LBottomNavigationView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -205,6 +206,7 @@
     <Folder Include="Resources\font\" />
     <Folder Include="Behaviors\" />
     <Folder Include="Views\Colleague\" />
+    <Folder Include="Controls\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Loyalty.Core\Loyalty.Core.csproj">
