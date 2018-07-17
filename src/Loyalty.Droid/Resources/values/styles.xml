@@ -28,6 +28,8 @@
             name="android:fontFamily">@font/roboto_medium</item>
         <item
             name="android:textSize">@dimen/text_h6</item>
+        <item
+            name="android:textColor">@color/textBase</item>
     </style>
     <style
         name  ="AppTheme.TextAppearance.Body"

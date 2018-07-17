@@ -142,7 +142,6 @@
     <Compile Include="MainApplication.cs" />
     <Compile Include="Behaviors\BottomNavigationViewBehavior.cs" />
     <Compile Include="Views\Colleague\ColleagueFragment.cs" />
-    <Compile Include="Controls\LBottomNavigationView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -187,6 +186,16 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_tab_profile.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_tab_colleagues.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_tab_profile.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_search.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_search.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_search.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_search.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_search.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_give_thanks.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_give_thanks.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_give_thanks.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_give_thanks.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_give_thanks.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\mipmap-hdpi\" />
@@ -206,7 +215,6 @@
     <Folder Include="Resources\font\" />
     <Folder Include="Behaviors\" />
     <Folder Include="Views\Colleague\" />
-    <Folder Include="Controls\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Loyalty.Core\Loyalty.Core.csproj">

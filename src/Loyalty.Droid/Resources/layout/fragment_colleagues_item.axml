@@ -5,11 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:descendantFocusability="blocksDescendants"
-    local:cardUseCompatPadding="true"
-    local:contentPadding="@dimen/internal_margins">
+    local:cardUseCompatPadding="true">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/external_margins"
+        android:paddingRight="@dimen/external_margins"
+        android:paddingTop="@dimen/external_margins">
         <ffimageloading.cross.MvxCachedImageView
             android:id="@+id/imageView"
             android:layout_width="@dimen/colleagues_item_imageSize"
@@ -34,11 +36,10 @@
                 tools:text="Константинопольский Константин"
                 local:MvxBind="Text FullName" />
             <TextView
-                style="@style/AppTheme.TextAppearance.Body1"
+                style="@style/AppTheme.TextAppearance.Body2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/internal_margins"
-                android:textColor="@color/textGray"
                 android:singleLine="true"
                 android:ellipsize="end"
                 tools:text="Техническая поддержка"
@@ -51,6 +52,7 @@
             android:paddingLeft="@dimen/internal_margins"
             android:gravity="left|center_vertical"
             android:text="@string/colleagues_item_give_thanks"
+            android:drawableLeft="@drawable/ic_give_thanks"
             local:MvxBind="Click GiveThanksCommand" />
     </RelativeLayout>
 </android.support.v7.widget.CardView>

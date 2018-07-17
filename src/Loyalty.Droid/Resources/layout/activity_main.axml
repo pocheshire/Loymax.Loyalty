@@ -11,10 +11,8 @@
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
-            local:layout_behavior="@string/appbar_scrolling_view_behavior" />
-    <!--<android.support.design.widget.BottomNavigationView-->
-        <loyalty.droid.controls.LBottomNavigationView
+            android:background="@color/white" />
+        <android.support.design.widget.BottomNavigationView
             android:id="@+id/bottom_navigation_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,7 +20,7 @@
             android:background="@color/white"
             local:elevation="8dp"
             local:itemIconTint="@drawable/bottom_navigation_item_background_colors"
-            local:itemTextColor="@null"
+            local:itemTextColor="@drawable/bottom_navigation_item_background_colors"
             local:menu="@menu/menu_bottom_navigation" />
     </android.support.design.widget.CoordinatorLayout>
     <FrameLayout
