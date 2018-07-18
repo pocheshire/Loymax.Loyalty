@@ -90,7 +90,8 @@ namespace Loyalty.Core.ViewModels.Colleagues
 
         private Task OnItemSelected(ColleagueItemVm item)
         {
-            return NavigationService.Navigate<ColleagueViewModel, API.Models.Colleague>(item.Model);
+            //return NavigationService.Navigate<ColleagueViewModel, API.Models.Colleague>(item.Model);
+            return Task.CompletedTask;
         }
 
         #endregion

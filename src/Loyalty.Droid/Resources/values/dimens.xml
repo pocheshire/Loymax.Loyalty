@@ -25,6 +25,8 @@
         name="colleagues_item_imageSize">70dp</dimen>
     <dimen
         name="colleague_imageSize">140dp</dimen>
+    <dimen
+        name="profile_user_info_background_height">166dp</dimen>
 <!--    -->
 <!--  Text sizes  -->
     <dimen

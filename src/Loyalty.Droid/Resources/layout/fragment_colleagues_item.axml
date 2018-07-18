@@ -18,7 +18,7 @@
             android:layout_height="@dimen/colleagues_item_imageSize"
             android:layout_margin="@dimen/internal_margins"
             android:layout_alignParentRight="true"
-            local:MvxBind="ImagePath ImageUrl" />
+            local:MvxBind="ErrorPlaceholderImagePath 'res:ic_funny_error.png'; Transformations Transformations; ImagePath EmptyImageUrl(ImageUrl, Id);" />
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"

@@ -9,6 +9,10 @@ using MvvmCross.Droid.Support.V7.AppCompat;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
 using Android.Support.V7.View.Menu;
 using Android.Util;
+using Android.Animation;
+using System;
+using Android.Graphics;
+using Android.Widget;
 
 namespace Loyalty.Droid.Views.Main
 {
@@ -80,16 +84,36 @@ namespace Loyalty.Droid.Views.Main
         {
             var result = false;
 
+            var userInfoBackground = FindViewById<View>(Resource.Id.profile_user_info_background);
+
             switch (item.ItemId)
             {
                 case Resource.Id.main_tab_colleagues:
-                    result = true;
-                    ViewModel.SelectionChangedCommand.Execute(0);
-                    break;
+                    {
+                        result = true;
+
+                        var valueAnimator = ValueAnimator.OfInt((int)Resources.GetDimension(Resource.Dimension.profile_user_info_background_height), 0);
+                        valueAnimator.AddUpdateListener(new AnimatorHeightUpdateListener(userInfoBackground));
+                        valueAnimator.SetDuration(300);
+                        valueAnimator.Start();
+
+                        ViewModel.SelectionChangedCommand.Execute(0);
+
+                        break;
+                    }
                 case Resource.Id.main_tab_profile:
-                    result = true;
-                    ViewModel.SelectionChangedCommand.Execute(1);
-                    break;
+                    {
+                        result = true;
+
+                        var valueAnimator = ValueAnimator.OfInt(0, (int)Resources.GetDimension(Resource.Dimension.profile_user_info_background_height));
+                        valueAnimator.AddUpdateListener(new AnimatorHeightUpdateListener(userInfoBackground));
+                        valueAnimator.SetDuration(300);
+                        valueAnimator.Start();
+
+                        ViewModel.SelectionChangedCommand.Execute(1);
+
+                        break;
+                    }
             }
 
             return result;
@@ -98,6 +122,21 @@ namespace Loyalty.Droid.Views.Main
         public void OnNavigationItemReselected(IMenuItem item)
         {
 
+        }
+
+        private class AnimatorHeightUpdateListener : Java.Lang.Object, ValueAnimator.IAnimatorUpdateListener
+        {
+            private readonly View view;
+
+            public AnimatorHeightUpdateListener(View view)
+            {
+                this.view = view;
+            }
+            public void OnAnimationUpdate(ValueAnimator animation)
+            {
+                view.LayoutParameters.Height = (int)animation.AnimatedValue;
+                view.RequestLayout();
+            }
         }
     }
 }
