@@ -7,6 +7,8 @@ using Loyalty.Core.ViewModels.Profile;
 using MvvmCross.Droid.Support.V4;
 using MvvmCross.Platforms.Android.Binding.BindingContext;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
+using MvvmCross.Droid.Support.V7.RecyclerView;
+using Android.Support.V7.Widget;
 
 namespace Loyalty.Droid.Views.Profile
 {
@@ -28,6 +30,14 @@ namespace Loyalty.Droid.Views.Profile
             var view = this.BindingInflate(Resource.Layout.fragment_profile, null);
 
             return view;
+        }
+
+        public override void OnViewCreated(View view, Bundle savedInstanceState)
+        {
+            base.OnViewCreated(view, savedInstanceState);
+
+            var recyclerView = view.FindViewById<MvxRecyclerView>(Resource.Id.profile_achievement_recyclerView);
+            recyclerView.SetLayoutManager(new LinearLayoutManager(Context, LinearLayoutManager.Horizontal, false));
         }
     }
 }
