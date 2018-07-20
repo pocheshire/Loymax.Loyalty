@@ -15,6 +15,8 @@
     <string
         name="auth_sign_in">ВОЙТИ</string>
     <string
+        name="colleagues_search_hint">Найдите коллегу</string>
+    <string
         name="colleagues_item_give_thanks">БЛАГОДАРОЧКА</string>
     <string
         name="colleague_balance">Баланс</string>

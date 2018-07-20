@@ -23,6 +23,12 @@ namespace Loyalty.Core.ViewModels.Colleagues
         private IMvxCommand _selectionChangedCommand;
         public IMvxCommand SelectionChangedCommand => _selectionChangedCommand ?? (_selectionChangedCommand = new MvxAsyncCommand<ColleagueItemVm>(OnItemSelected));
 
+        private IMvxCommand _searchCommand;
+        public IMvxCommand SearchCommand => _searchCommand ?? (_searchCommand = new MvxAsyncCommand<string>(OnSearchExecute));
+
+        private IMvxCommand _cancelSearchCommand;
+        public IMvxCommand CancelSearchCommand => _cancelSearchCommand ?? (_cancelSearchCommand = new MvxAsyncCommand(OnCancelSearch));
+
         #endregion
 
         #region Properties
@@ -86,12 +92,42 @@ namespace Loyalty.Core.ViewModels.Colleagues
             Loading = false;
         }
 
+        private async Task SearchContent(string query)
+        {
+            Loading = true;
+
+            try
+            {
+                var rawColleagues = await ColleagueService.SearchColleagues(query);
+
+                Items = new MvxObservableCollection<ColleagueItemVm>(rawColleagues.Select(SetupItem));
+            }
+            catch (Exception)
+            {
+                UserDialog.ShowAlert("Не удалось найти коллег по вашему запросу");
+            }
+
+            _initialized = true;
+
+            Loading = false;
+        }
+
         private ColleagueItemVm SetupItem(API.Models.Colleague model) => new ColleagueItemVm(model, GiveThanksService);
 
         private Task OnItemSelected(ColleagueItemVm item)
         {
             //return NavigationService.Navigate<ColleagueViewModel, API.Models.Colleague>(item.Model);
             return Task.CompletedTask;
+        }
+
+        private Task OnSearchExecute(string query)
+        {
+            return SearchContent(query);
+        }
+
+        private Task OnCancelSearch()
+        {
+            return LoadContent();
         }
 
         #endregion

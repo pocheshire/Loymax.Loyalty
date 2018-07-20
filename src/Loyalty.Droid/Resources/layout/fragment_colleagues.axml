@@ -9,9 +9,11 @@
         android:layout_height="@dimen/colleagues_appbar_height"
         android:background="@color/white">
         <LinearLayout
+            android:id="@+id/fragment_colleagues_customToolbar"
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/fragment_colleagues_toolbar_search_background_marginTop">
             <TextView
                 style="@style/AppTheme.TextAppearance.Header4"
                 android:layout_width="0dp"
@@ -21,12 +23,44 @@
                 android:layout_marginLeft="@dimen/external_margins"
                 android:text="@string/main_tab_colleagues" />
             <ImageButton
+                android:id="@+id/fragment_colleagues_toolbar_search"
                 android:layout_width="@dimen/button_height"
                 android:layout_height="@dimen/button_height"
                 android:layout_gravity="center_vertical"
                 android:scaleType="center"
                 android:background="@color/white"
                 android:src="@drawable/ic_search" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/fragment_colleagues_toolbar_searchLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_colleagues_toolbar_search_background_height"
+            android:layout_marginTop="@dimen/fragment_colleagues_toolbar_search_background_marginTop"
+            android:layout_marginLeft="@dimen/fragment_colleagues_toolbar_search_background_margins"
+            android:layout_marginRight="@dimen/fragment_colleagues_toolbar_search_background_margins"
+            android:background="@drawable/fragment_colleagues_toolbar_search_background"
+            android:clipToPadding="false"
+            android:elevation="2dp"
+            android:visibility="gone">
+            <ImageButton
+                android:id="@+id/fragment_colleagues_toolbar_closeSearch"
+                android:layout_width="@dimen/fragment_colleagues_toolbar_search_background_height"
+                android:layout_height="@dimen/fragment_colleagues_toolbar_search_background_height"
+                android:layout_gravity="center_vertical"
+                android:scaleType="center"
+                android:background="@null"
+                android:src="@drawable/abc_ic_ab_back_material" />
+            <android.support.v7.widget.SearchView
+                android:id="@+id/fragment_colleagues_toolbar_searchView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/internal_margins"
+                android:layout_gravity="center_vertical"
+                local:iconifiedByDefault="false"
+                local:searchIcon="@null"
+                local:searchHintIcon="@null"
+                local:queryBackground="@null"
+                local:queryHint="@string/colleagues_search_hint" />
         </LinearLayout>
     </android.support.design.widget.AppBarLayout>
     <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView

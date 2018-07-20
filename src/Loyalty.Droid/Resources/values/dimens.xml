@@ -11,8 +11,16 @@
         name="internal_margins">8dp</dimen>
     <dimen
         name="colleagues_recyclerview_horizontal_paddings">12dp</dimen>
+    <dimen
+        name="fragment_colleagues_toolbar_search_background_margins">8dp</dimen>
+    <dimen
+        name="fragment_colleagues_toolbar_search_background_marginTop">16dp</dimen>
+    <dimen
+        name="fragment_colleagues_toolbar_search_background_height">64dp</dimen>
 <!--    -->
 <!--  Width & Height  -->
+    <dimen
+        name="toolbar_height">56dp</dimen>
     <dimen
         name="inputLayout_height">72dp</dimen>
     <dimen
@@ -52,6 +60,8 @@
 <!--    -->
 <!--  Corner radius  -->
     <dimen
-        name="button_cornerRadius">0dp</dimen>
+        name="button_cornerRadius">4dp</dimen>
+    <dimen
+        name="search_background_cornerRadius">2dp</dimen>
 <!--    -->
 </resources>

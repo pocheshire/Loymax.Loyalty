@@ -245,6 +245,8 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_funny_avatar_3.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_funny_avatar_4.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_funny_error.png" />
+    <AndroidResource Include="Resources\menu\menu_colleagues_toolbar.xml" />
+    <AndroidResource Include="Resources\drawable\fragment_colleagues_toolbar_search_background.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\mipmap-hdpi\" />

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:bottom="@dimen/fragment_colleagues_toolbar_search_background_margins"
+        android:left  ="@dimen/fragment_colleagues_toolbar_search_background_margins"
+        android:right ="@dimen/fragment_colleagues_toolbar_search_background_margins"
+        android:top   ="@dimen/fragment_colleagues_toolbar_search_background_margins">
+        <shape
+            android:shape="rectangle">
+            <solid
+                android:color="@color/white" />
+            <corners
+                android:radius="@dimen/search_background_cornerRadius" />
+        </shape>
+    </item>
+</layer-list>

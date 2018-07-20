@@ -8,6 +8,8 @@ namespace Loyalty.API.Services
     {
         Task<IEnumerable<Colleague>> GetColleagues();
 
+        Task<IEnumerable<Colleague>> SearchColleagues(string query);
+
         Task<bool> GiveThanks(string id, decimal sum);
     }
 }

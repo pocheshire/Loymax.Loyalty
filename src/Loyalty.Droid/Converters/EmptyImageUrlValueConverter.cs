@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Globalization;
-using MvvmCross.Converters;
-using Realms;
 using System.Linq;
 using Android.App;
+using MvvmCross.Converters;
+using Realms;
 
 namespace Loyalty.Droid.Converters
 {
@@ -57,6 +57,7 @@ namespace Loyalty.Droid.Converters
 
         public class UserImage : RealmObject
         {
+            [PrimaryKey]
             public string Id { get; set; }
 
             public string ImagePath { get; set; }
