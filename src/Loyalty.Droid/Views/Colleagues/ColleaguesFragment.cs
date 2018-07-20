@@ -83,8 +83,11 @@ namespace Loyalty.Droid.Views.Colleagues
                 customToolbar.Visibility = ViewStates.Gone;
                 searchLayout.Visibility = ViewStates.Visible;
 
+                searchButton.ClearFocus();
+
                 searchView.OnActionViewExpanded();
                 searchView.Activated = true;
+                searchView.ClearFocus();
 
                 ShowKeyboard(searchView);
 
@@ -101,13 +104,25 @@ namespace Loyalty.Droid.Views.Colleagues
 
                 SearchHidden = true;
 
+                searchView.SetQuery(string.Empty, false);
+
                 ViewModel.CancelSearchCommand.Execute();
             };
+
+            var swipeRefreshLayout = view.FindViewById<MvxSwipeRefreshLayout>(Resource.Id.fragment_colleagues_swipeRefreshLayout);
+            swipeRefreshLayout.SetColorSchemeResources(Resource.Color.accent, Resource.Color.accent, Resource.Color.accent);
 
             var recyclerView = view.FindViewById<MvxRecyclerView>(Resource.Id.fragment_colleagues_recyclerView);
             var initialTopPosition = TypedValue.ApplyDimension(ComplexUnitType.Dip, -4, Resources.DisplayMetrics);
 
             recyclerView.AddOnScrollListener(new OnScrollListener(appBarLayout, initialElevation, (int)initialTopPosition, () => SearchHidden));
+        }
+
+        public override void OnResume()
+        {
+            base.OnResume();
+
+            Activity.Window.SetSoftInputMode(SoftInput.AdjustPan);
         }
 
         private class OnScrollListener : RecyclerView.OnScrollListener

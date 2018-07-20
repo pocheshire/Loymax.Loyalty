@@ -163,7 +163,6 @@
     <Compile Include="Setup.cs" />
     <Compile Include="MainApplication.cs" />
     <Compile Include="Behaviors\BottomNavigationViewBehavior.cs" />
-    <Compile Include="Views\Colleague\ColleagueFragment.cs" />
     <Compile Include="Converters\EmptyImageUrlValueConverter.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -198,7 +197,6 @@
     <AndroidResource Include="Resources\drawable\control_button_base_normal.xml" />
     <AndroidResource Include="Resources\layout\fragment_colleagues_item.axml" />
     <AndroidResource Include="Resources\layout\fragment_profile.axml" />
-    <AndroidResource Include="Resources\layout\fragment_colleague.axml" />
     <AndroidResource Include="Resources\layout\include_userdialog_edittext.axml" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_tab_colleagues.png" />
     <AndroidResource Include="Resources\drawable-hdpi\ic_tab_profile.png" />
@@ -247,6 +245,7 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_funny_error.png" />
     <AndroidResource Include="Resources\menu\menu_colleagues_toolbar.xml" />
     <AndroidResource Include="Resources\drawable\fragment_colleagues_toolbar_search_background.xml" />
+    <AndroidResource Include="Resources\layout\fragment_profile_achievements_item.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\mipmap-hdpi\" />
@@ -265,7 +264,6 @@
     <Folder Include="Services\Implementations\" />
     <Folder Include="Resources\font\" />
     <Folder Include="Behaviors\" />
-    <Folder Include="Views\Colleague\" />
     <Folder Include="Converters\" />
   </ItemGroup>
   <ItemGroup>

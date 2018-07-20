@@ -15,14 +15,15 @@
     <Folder Include="ViewModels\Main\" />
     <Folder Include="ViewModels\Profile\" />
     <Folder Include="ViewModels\Colleagues\" />
-    <Folder Include="ViewModels\Colleague\" />
     <Folder Include="Services\" />
     <Folder Include="ViewModels\Auth\" />
     <Folder Include="Services\Implementations\" />
     <Folder Include="ViewModels\Colleagues\Items\" />
+    <Folder Include="ViewModels\Profile\Items\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="ViewModels\Main\IMainTabViewModel.cs" />
+    <Compile Remove="ViewModels\Colleague\ColleagueViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Loyalty.API\Loyalty.API.csproj" />

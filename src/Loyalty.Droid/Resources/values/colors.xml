@@ -18,4 +18,6 @@
         name="highlightedControl">#000AB3</color>
     <color
         name="invalid">#EA0048</color>
+    <color
+        name="divider">#180A1E32</color>
 </resources>

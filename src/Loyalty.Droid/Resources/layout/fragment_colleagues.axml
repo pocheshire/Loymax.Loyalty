@@ -7,7 +7,8 @@
         android:id="@+id/fragment_colleagues_appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/colleagues_appbar_height"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:elevation="0dp">
         <LinearLayout
             android:id="@+id/fragment_colleagues_customToolbar"
             android:orientation="horizontal"
@@ -63,16 +64,44 @@
                 local:queryHint="@string/colleagues_search_hint" />
         </LinearLayout>
     </android.support.design.widget.AppBarLayout>
-    <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
-        android:id="@+id/fragment_colleagues_recyclerView"
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/external_margins"
+        android:background="@android:color/transparent"
+        local:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <TextView
+            style="@style/AppTheme.TextAppearance.Hint1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/external_margins"
+            android:text="@string/colleagues_empty"
+            local:MvxBind="Visibility Visibility(IsItemsEmpty)" />
+        <TextView
+            style="@style/AppTheme.TextAppearance.Hint1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/external_margins"
+            android:text="@string/colleagues_no_search_results"
+            local:MvxBind="Visibility Visibility(HasNoSearchResults)" />
+    </FrameLayout>
+    <MvvmCross.Droid.Support.V4.MvxSwipeRefreshLayout
+        android:id="@+id/fragment_colleagues_swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/colleagues_recyclerview_horizontal_paddings"
         android:layout_marginRight="@dimen/colleagues_recyclerview_horizontal_paddings"
         android:background="@android:color/transparent"
         local:layout_behavior="@string/appbar_scrolling_view_behavior"
-        local:MvxItemTemplate="@layout/fragment_colleagues_item"
-        local:MvxBind="ItemsSource Items; ItemClick SelectionChangedCommand" />
+        local:MvxBind="Refreshing Refreshing; RefreshCommand RefreshCommand">
+        <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
+            android:id="@+id/fragment_colleagues_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            local:MvxItemTemplate="@layout/fragment_colleagues_item"
+            local:MvxBind="ItemsSource Items; ItemClick SelectionChangedCommand" />
+    </MvvmCross.Droid.Support.V4.MvxSwipeRefreshLayout>
     <include
         layout="@layout/include_loading" />
 </android.support.design.widget.CoordinatorLayout>

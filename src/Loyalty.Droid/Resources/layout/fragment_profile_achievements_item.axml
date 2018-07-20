@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <ffimageloading.cross.MvxCachedImageView
+        android:layout_width="@dimen/profile_achievement_imageSize"
+        android:layout_height="@dimen/profile_achievement_imageSize"
+        android:layout_marginRight="@dimen/profile_achievement_horizontalMargins"
+        android:layout_marginLeft="@dimen/profile_achievement_horizontalMargins"
+        android:layout_marginTop="@dimen/profile_achievement_verticalMargins"
+        android:layout_marginBottom="@dimen/profile_achievement_verticalMargins"
+        android:layout_alignParentRight="true"
+        local:MvxBind="Transformations Transformations; ImagePath ImageUrl" />
+</LinearLayout>

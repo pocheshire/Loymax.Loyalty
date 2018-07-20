@@ -19,7 +19,17 @@
     <string
         name="colleagues_item_give_thanks">БЛАГОДАРОЧКА</string>
     <string
-        name="colleague_balance">Баланс</string>
+        name="colleagues_empty">Ой, кажется мы потеряли ваших коллег.\nПотяните вниз, чтобы мы\nпоискали их</string>
+    <string
+        name="colleagues_no_search_results">Увы, мы не смогли найти коллег\nпо вашему запросу</string>
+    <string
+        name="profile_achievements">Достижения</string>
+    <string
+        name="profile_more">ЕЩЕ</string>
+    <string
+        name="profile_recieved_thanks">Полученные</string>
+    <string
+        name="profile_recieved_thanks_hint">Здесь будет храниться история\nблагодарностей от ваших коллег.</string>
     <string
         name="givethanks_edittext_hint">Введите количество баллов</string>
 </resources>

@@ -37,7 +37,7 @@ namespace Loyalty.Core.Services.Implementations
                 );
 
                 var result = false;
-                if (user.Balance - sum > 0)
+                if (user.Balance - sum >= 0)
                 {
                     try
                     {

@@ -51,6 +51,22 @@
         <item
             name="android:textSize">@dimen/text_body2</item>
     </style>
+    <style
+        name  ="AppTheme.TextAppearance.Hint"
+        parent="">
+        <item
+            name="android:fontFamily">@font/roboto_regular</item>
+        <item
+            name="android:textColor">@color/accent</item>
+        <item
+            name="android:lineSpacingExtra">15dp</item>
+    </style>
+    <style
+        name  ="AppTheme.TextAppearance.Hint1"
+        parent="AppTheme.TextAppearance.Hint">
+        <item
+            name="android:textSize">@dimen/text_body1</item>
+    </style>
     <!--    -->
     <!--  Inputs  -->
     <style
@@ -136,4 +152,16 @@
             name="android:textColor">@color/accent</item>
     </style>
     <!--    -->
+<!--  Dividers  -->
+    <style
+        name="AppTheme.Control.Divider"
+        parent="">
+        <item
+            name="android:background">@color/divider</item>
+        <item
+            name="android:layout_height">@dimen/divider_height</item>
+        <item
+            name="android:layout_width">match_parent</item>
+    </style>
+<!--    -->
 </resources>

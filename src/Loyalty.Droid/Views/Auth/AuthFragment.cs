@@ -29,5 +29,12 @@ namespace Loyalty.Droid.Views.Auth
 
             return view;
         }
+
+        public override void OnResume()
+        {
+            base.OnResume();
+
+            Activity.Window.SetSoftInputMode(SoftInput.AdjustResize);
+        }
     }
 }

@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Loyalty.API.Services;
 using Loyalty.Core.Services;
-using Loyalty.Core.ViewModels.Colleague;
 using Loyalty.Core.ViewModels.Colleagues.Items;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
@@ -29,6 +28,9 @@ namespace Loyalty.Core.ViewModels.Colleagues
         private IMvxCommand _cancelSearchCommand;
         public IMvxCommand CancelSearchCommand => _cancelSearchCommand ?? (_cancelSearchCommand = new MvxAsyncCommand(OnCancelSearch));
 
+        private IMvxCommand _refreshCommand;
+        public IMvxCommand RefreshCommand => _refreshCommand ?? (_refreshCommand = new MvxAsyncCommand(OnRefreshExecute));
+
         #endregion
 
         #region Properties
@@ -40,11 +42,32 @@ namespace Loyalty.Core.ViewModels.Colleagues
             set => SetProperty(ref _loading, value, nameof(Loading));
         }
 
+        private bool _refreshing;
+        public bool Refreshing
+        {
+            get => _refreshing;
+            set => SetProperty(ref _refreshing, value, nameof(Refreshing));
+        }
+
         private MvxObservableCollection<ColleagueItemVm> _items;
         public MvxObservableCollection<ColleagueItemVm> Items
         {
             get => _items;
             set => SetProperty(ref _items, value, nameof(Items));
+        }
+
+        private bool _isItemsEmpty;
+        public bool IsItemsEmpty
+        {
+            get => _isItemsEmpty;
+            set => SetProperty(ref _isItemsEmpty, value, nameof(IsItemsEmpty));
+        }
+
+        private bool _hasNoSearchResults;
+        public bool HasNoSearchResults
+        {
+            get => _hasNoSearchResults;
+            set => SetProperty(ref _hasNoSearchResults, value, nameof(HasNoSearchResults));
         }
 
         #endregion
@@ -72,38 +95,56 @@ namespace Loyalty.Core.ViewModels.Colleagues
 
         #region Private
 
-        private async Task LoadContent()
+        private async Task LoadContent(bool refreshing = false)
         {
-            Loading = true;
+            if (refreshing)
+                Refreshing = true;
+            else
+                Loading = true;
+
+            HasNoSearchResults = false;
 
             try
             {
                 var rawColleagues = await ColleagueService.GetColleagues();
 
                 Items = new MvxObservableCollection<ColleagueItemVm>(rawColleagues.Select(SetupItem));
+
+                IsItemsEmpty = Items.Count == 0;
             }
             catch (Exception)
             {
+                IsItemsEmpty = true;
+
                 UserDialog.ShowAlert("Не удалось загрузить список коллег");
             }
 
             _initialized = true;
 
-            Loading = false;
+            if (refreshing)
+                Refreshing = false;
+            else
+                Loading = false;
         }
 
         private async Task SearchContent(string query)
         {
             Loading = true;
 
+            IsItemsEmpty = false;
+
             try
             {
                 var rawColleagues = await ColleagueService.SearchColleagues(query);
 
                 Items = new MvxObservableCollection<ColleagueItemVm>(rawColleagues.Select(SetupItem));
+
+                HasNoSearchResults = Items.Count == 0;
             }
             catch (Exception)
             {
+                HasNoSearchResults = true;
+
                 UserDialog.ShowAlert("Не удалось найти коллег по вашему запросу");
             }
 
@@ -128,6 +169,11 @@ namespace Loyalty.Core.ViewModels.Colleagues
         private Task OnCancelSearch()
         {
             return LoadContent();
+        }
+
+        private Task OnRefreshExecute()
+        {
+            return LoadContent(true);
         }
 
         #endregion

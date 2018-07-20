@@ -12,11 +12,23 @@
     <dimen
         name="colleagues_recyclerview_horizontal_paddings">12dp</dimen>
     <dimen
-        name="fragment_colleagues_toolbar_search_background_margins">8dp</dimen>
+        name="fragment_colleagues_toolbar_search_background_margins">14dp</dimen>
     <dimen
-        name="fragment_colleagues_toolbar_search_background_marginTop">16dp</dimen>
+        name="fragment_colleagues_toolbar_search_background_marginTop">20dp</dimen>
     <dimen
-        name="fragment_colleagues_toolbar_search_background_height">64dp</dimen>
+        name="fragment_colleagues_toolbar_search_background_height">56dp</dimen>
+    <dimen
+        name="profile_info_marginTop">27dp</dimen>
+    <dimen
+        name="profile_balance_marginTop">4dp</dimen>
+    <dimen
+        name="profile_section_title_marginTop">12dp</dimen>
+    <dimen
+        name="profile_second_section_title_marginTop">24dp</dimen>
+    <dimen
+        name="profile_bottom_navigation_marginBottom">56dp</dimen>
+    <dimen
+        name="profile_divider_marginLeft">12dp</dimen>
 <!--    -->
 <!--  Width & Height  -->
     <dimen
@@ -28,13 +40,25 @@
     <dimen
         name="loader_height">50dp</dimen>
     <dimen
+        name="divider_height">1dp</dimen>
+    <dimen
         name="colleagues_appbar_height">80dp</dimen>
     <dimen
         name="colleagues_item_imageSize">70dp</dimen>
     <dimen
-        name="colleague_imageSize">140dp</dimen>
+        name="profile_imageSize">82dp</dimen>
     <dimen
         name="profile_user_info_background_height">166dp</dimen>
+    <dimen
+        name="profile_section_minHeight">172dp</dimen>
+    <dimen
+        name="profile_horizontal_collection_minHeight">139dp</dimen>
+    <dimen
+        name="profile_achievement_imageSize">90dp</dimen>
+    <dimen
+        name="profile_achievement_horizontalMargins">6dp</dimen>
+    <dimen
+        name="profile_achievement_verticalMargins">24dp</dimen>
 <!--    -->
 <!--  Text sizes  -->
     <dimen

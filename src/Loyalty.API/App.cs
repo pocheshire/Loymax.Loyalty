@@ -16,6 +16,8 @@ namespace Loyalty.API
             {
                 Mvx.RegisterType<IAuthService>(() => new MockAuthService());
                 Mvx.RegisterType<IColleaguesService>(() => new MockColleaguesService());
+                Mvx.RegisterType<IAchievementsService>(() => new MockAchievementsService());
+                Mvx.RegisterType<IRecievedThanksService>(() => new MockRecievedThanksService());
             }
             else
             {

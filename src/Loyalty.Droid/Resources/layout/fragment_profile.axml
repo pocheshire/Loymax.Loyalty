@@ -5,57 +5,146 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ffimageloading.cross.MvxCachedImageView
-        android:layout_width="@dimen/colleague_imageSize"
-        android:layout_height="@dimen/colleague_imageSize"
-        android:layout_margin="@dimen/external_margins"
-        android:layout_alignParentRight="true"
-        local:MvxBind="ImagePath ImageUrl" />
-    <TextView
-        style="@style/AppTheme.TextAppearance.Header6"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/external_margins"
-        android:layout_marginRight="@dimen/external_margins"
-        android:layout_marginTop="@dimen/external_margins"
-        android:singleLine="false"
-        android:maxLines="2"
-        android:ellipsize="end"
-        tools:text="Константинопольский Константин"
-        local:MvxBind="Text FullName" />
-    <TextView
-        style="@style/AppTheme.TextAppearance.Body1"
+        android:layout_height="@dimen/profile_user_info_background_height"
+        tools:background="#000FFF">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/profile_info_marginTop">
+            <TextView
+                style="@style/AppTheme.TextAppearance.Header4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/external_margins"
+                android:layout_marginRight="@dimen/external_margins"
+                android:textColor="@color/white"
+                android:singleLine="false"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_weight="1"
+                local:MvxBind="Text FullName"
+                tools:text="Даша Любовенко" />
+            <ffimageloading.cross.MvxCachedImageView
+                android:layout_width="@dimen/profile_imageSize"
+                android:layout_height="@dimen/profile_imageSize"
+                android:layout_marginRight="@dimen/external_margins"
+                android:layout_alignParentRight="true"
+                local:MvxBind="ErrorPlaceholderImagePath 'res:ic_funny_error.png'; Transformations Transformations; ImagePath EmptyImageUrl(ImageUrl, Id);" />
+        </LinearLayout>
+        <TextView
+            style="@style/AppTheme.TextAppearance.Header5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/external_margins"
+            android:layout_marginRight="@dimen/external_margins"
+            android:layout_marginTop="@dimen/profile_balance_marginTop"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/white"
+            android:singleLine="true"
+            android:ellipsize="end"
+            local:MvxBind="Text BalanceString"
+            tools:text="1 000 ₽" />
+    </LinearLayout>
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/external_margins"
-        android:layout_marginRight="@dimen/external_margins"
-        android:layout_marginTop="@dimen/internal_margins"
-        android:layout_marginBottom="@dimen/external_margins"
-        android:textColor="@color/textGray"
-        android:singleLine="true"
-        android:ellipsize="end"
-        tools:text="Техническая поддержка"
-        local:MvxBind="Text RoleName" />
-    <TextView
-        style="@style/AppTheme.TextAppearance.Body2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/external_margins"
-        android:layout_marginRight="@dimen/external_margins"
-        android:layout_marginTop="@dimen/external_margins"
-        android:singleLine="true"
-        android:ellipsize="end"
-        android:text="@string/colleague_balance"
-        tools:text="Баланс" />
-    <TextView
-        style="@style/AppTheme.TextAppearance.Body1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/external_margins"
-        android:layout_marginRight="@dimen/external_margins"
-        android:layout_marginTop="@dimen/internal_margins"
-        android:singleLine="true"
-        android:ellipsize="end"
-        local:MvxBind="Text BalanceString"
-        tools:text="1 000" />
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/profile_bottom_navigation_marginBottom"
+        android:scrollbars="none">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <!--  Achievements section  -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/profile_section_minHeight">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/profile_section_title_marginTop"
+                    android:layout_marginLeft="@dimen/external_margins"
+                    android:layout_marginRight="@dimen/external_margins">
+                    <TextView
+                        style="@style/AppTheme.TextAppearance.Header5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/profile_achievements" />
+                    <Button
+                        style="@style/AppTheme.Control.Button.Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="right|center_vertical"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/profile_more"
+                        local:MvxBind="Click MoreAchievementsCommand; Visibility Visibility(MoreAchievementsVisible)" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/profile_horizontal_collection_minHeight">
+                    <MvvmCross.Droid.Support.V7.RecyclerView.MvxRecyclerView
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="@dimen/profile_achievement_horizontalMargins"
+                        android:paddingLeft="@dimen/profile_achievement_horizontalMargins"
+                        android:clipToPadding="false"
+                        local:MvxItemTemplate="@layout/fragment_profile_achievements_item"
+                        local:MvxBind="ItemsSource AchievementItems;" />
+                </LinearLayout>
+                <View
+                    style="@style/AppTheme.Control.Divider"
+                    android:layout_marginLeft="@dimen/profile_divider_marginLeft" />
+            </LinearLayout>
+        <!--  Recieved thanks section  -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/profile_section_minHeight">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/profile_second_section_title_marginTop"
+                    android:layout_marginLeft="@dimen/external_margins"
+                    android:layout_marginRight="@dimen/external_margins">
+                    <TextView
+                        style="@style/AppTheme.TextAppearance.Header5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/profile_recieved_thanks" />
+                    <Button
+                        style="@style/AppTheme.Control.Button.Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="right|center_vertical"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/profile_more"
+                        local:MvxBind="Click MoreThanksCommand; Visibility Visibility(MoreThanksVisible)" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/profile_horizontal_collection_minHeight">
+                    <TextView
+                        style="@style/AppTheme.TextAppearance.Hint1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/external_margins"
+                        android:layout_marginLeft="@dimen/external_margins"
+                        android:text="@string/profile_recieved_thanks_hint"
+                        local:MvxBind="Visibility InvertedVisibility(HasRecievedThanks)" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

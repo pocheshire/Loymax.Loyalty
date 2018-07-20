@@ -30,13 +30,13 @@ namespace Loyalty.API.Services.Mocks
         {
             return new User
             {
-                Id = Guid.NewGuid().ToString(),
+                Id = "999000",
                 Surname = "Константинопольский",
                 Name = "Константин",
                 MiddleName = "Константинович",
                 RoleName = "Техническая поддержка",
                 Balance = 1000,
-                ImageUrl = "https://image.ibb.co/iS2s4y/images_2.png"
+                ImageUrl = ""
             };
         }
     }
