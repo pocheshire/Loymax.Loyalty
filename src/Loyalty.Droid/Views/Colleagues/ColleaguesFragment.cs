@@ -146,7 +146,7 @@ namespace Loyalty.Droid.Views.Colleagues
             {
                 base.OnScrolled(recyclerView, dx, dy);
 
-                if (IsElevationEnabled() && recyclerView.GetChildAt(0).Top < _initialTopPosition)
+                if (IsElevationEnabled() && recyclerView.GetChildAt(0)?.Top < _initialTopPosition)
                 {
                     _appBarLayout.Elevation = _initialElevation;
                 }
