@@ -20,6 +20,9 @@
     <Folder Include="Services\Implementations\" />
     <Folder Include="ViewModels\Colleagues\Items\" />
     <Folder Include="ViewModels\Profile\Items\" />
+    <Folder Include="ViewModels\GiveThanks\" />
+    <Folder Include="ViewModels\_base\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="ViewModels\Main\IMainTabViewModel.cs" />

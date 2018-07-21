@@ -1,10 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
+using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Loyalty.Core.Services;
 using MvvmCross;
 using MvvmCross.Platforms.Android;
-using Android.Support.Design.Widget;
-using System;
 
 namespace Loyalty.Droid.Services.Implementations
 {

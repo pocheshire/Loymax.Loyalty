@@ -32,7 +32,7 @@ namespace Loyalty.API.Services.Mocks
             return Task.FromResult(_colleagues);
         }
 
-        public Task<bool> GiveThanks(string id, decimal sum)
+        public Task<bool> GiveThanks(string id, decimal sum, string coment)
         {
             return id == _colleagues.ElementAt(4).Id ? Task.FromResult(false) : Task.FromResult(true);
         }

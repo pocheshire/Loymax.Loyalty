@@ -2,7 +2,8 @@
 using System.Threading.Tasks;
 using FFImageLoading.Transformations;
 using FFImageLoading.Work;
-using Loyalty.Core.Services;
+using Loyalty.API.Models;
+using Loyalty.Core.ViewModels.GiveThanks;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
 
@@ -10,7 +11,7 @@ namespace Loyalty.Core.ViewModels.Colleagues.Items
 {
     public class ColleagueItemVm : MvxViewModel
     {
-        internal API.Models.Colleague Model { get; }
+        internal Colleague Model { get; }
 
         private IMvxCommand _giveThanksCommand;
         public IMvxCommand GiveThanksCommand => _giveThanksCommand ?? (_giveThanksCommand = new MvxAsyncCommand(OnGiveThanksExecute));
@@ -25,13 +26,9 @@ namespace Loyalty.Core.ViewModels.Colleagues.Items
 
         public List<ITransformation> Transformations => new List<ITransformation> { new CircleTransformation() };
 
-        IGiveThanksService GiveThanksService { get; }
-
-        public ColleagueItemVm(API.Models.Colleague model, IGiveThanksService giveThanksService)
+        public ColleagueItemVm(Colleague model)
         {
             Model = model;
-
-            GiveThanksService = giveThanksService;
 
             Id = model.Id;
             FullName = $"{model.Surname} {model.Name}";
@@ -41,7 +38,7 @@ namespace Loyalty.Core.ViewModels.Colleagues.Items
 
         private Task OnGiveThanksExecute()
         {
-            return GiveThanksService.GiveThanks(Model);
+            return NavigationService.Navigate<GiveThanksViewModel, Colleague>(Model);
         }
     }
 }

@@ -1,12 +1,14 @@
-﻿using Android.App;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Windows.Input;
+using Android.App;
 using Android.Views;
 using Android.Widget;
+using FFImageLoading.Cross;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
-using System;
-using System.Collections.Specialized;
-using System.Windows.Input;
 
 namespace Loyalty.Droid
 {
@@ -15,6 +17,13 @@ namespace Loyalty.Droid
     [Android.Runtime.Preserve(AllMembers = true)]
     public class LinkerPleaseInclude
     {
+        public void Include (MvxCachedImageView imageView)
+        {
+            imageView.ErrorPlaceholderImagePath += imageView.ErrorPlaceholderImagePath + " ";
+            imageView.LoadingPlaceholderImagePath += imageView.LoadingPlaceholderImagePath + " ";
+            imageView.Transformations = new List<FFImageLoading.Work.ITransformation>(imageView.Transformations);
+        }
+        
         public void Include(Button button)
         {
             button.Click += (s, e) => button.Text = button.Text + "";

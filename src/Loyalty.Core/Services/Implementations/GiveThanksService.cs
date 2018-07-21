@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Threading.Tasks;
 using Loyalty.API.Models;
 using Loyalty.API.Services;
+using Loyalty.Core.Models;
 using MvvmCross;
 using MvvmCross.Logging;
 
@@ -24,46 +25,40 @@ namespace Loyalty.Core.Services.Implementations
             ColleaguesService = colleaguesService;
         }
 
-        public async Task GiveThanks(Colleague colleague)
+        public async Task<GiveThanksResult> GiveThanks(decimal sum, string comment, Colleague colleague)
         {
+            var operationResult = new GiveThanksResult();
+
             var user = SessionService.GetUser();
 
-            try
+            if (user.Balance - sum <= 0)
+                operationResult.SumResult = new ValidationResult { IsError = true, Error = $"Введите меньшую сумму, ваш баланс {user.Balance.ToString("C0", new CultureInfo("ru-RU").NumberFormat)}" };
+
+            if (string.IsNullOrEmpty(comment) || string.IsNullOrWhiteSpace(comment))
+                operationResult.CommentResult = new ValidationResult { IsError = true, Error = "Обязательно добавьте комментарий" };
+
+            if (operationResult.SumResult == null && operationResult.CommentResult == null)
             {
-                var sum = await UserDialog.ShowDecimalPrompt(
-                    $"{colleague.Surname} {colleague.Name}",
-                    $"Ваш баланс {user.Balance.ToString("C0", CultureInfo.CurrentUICulture.NumberFormat)}",
-                    user.Balance > 100 ? "100" : user.Balance.ToString("##", CultureInfo.CurrentUICulture.NumberFormat)
-                );
-
                 var result = false;
-                if (user.Balance - sum >= 0)
+                try
                 {
-                    try
-                    {
-                        result = await ColleaguesService.GiveThanks(colleague.Id, sum);
-                    }
-                    catch (Exception ex)
-                    {
-                        Mvx.Resolve<IMvxLog>().ErrorException(ex.Message, ex);
-                    }
+                    result = await ColleaguesService.GiveThanks(colleague.Id, sum, comment);
+                }
+                catch (Exception ex)
+                {
+                    Mvx.Resolve<IMvxLog>().ErrorException(ex.Message, ex);
+                }
 
-                    if (result)
-                    {
-                        user.Balance -= sum;
-
-                        UserDialog.ShowAlert("Коллега скажет вам спасибо!");
-                    }
-                    else
-                        UserDialog.ShowAlert("Не удалось поблагодарить коллегу, попробуйте позже");
+                if (result)
+                {
+                    user.Balance -= sum;
+                    operationResult.Success = true;
                 }
                 else
-                    UserDialog.ShowAlert(user.Balance > 0 ? "Введите меньшую сумму бонусов" : "Вы уже перечислили все доступные вам бонусы");
+                    UserDialog.ShowAlert("К сожалению благодарочка затерялась в пути, пожалуйста, попробуйте еще раз");
             }
-            catch (OperationCanceledException)
-            {
 
-            }
+            return operationResult;
         }
     }
 }

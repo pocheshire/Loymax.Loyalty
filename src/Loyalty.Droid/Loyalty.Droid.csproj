@@ -164,6 +164,7 @@
     <Compile Include="MainApplication.cs" />
     <Compile Include="Behaviors\BottomNavigationViewBehavior.cs" />
     <Compile Include="Converters\EmptyImageUrlValueConverter.cs" />
+    <Compile Include="Views\GiveThanks\GiveThanksFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -246,6 +247,7 @@
     <AndroidResource Include="Resources\menu\menu_colleagues_toolbar.xml" />
     <AndroidResource Include="Resources\drawable\fragment_colleagues_toolbar_search_background.xml" />
     <AndroidResource Include="Resources\layout\fragment_profile_achievements_item.axml" />
+    <AndroidResource Include="Resources\layout\fragment_give_thanks.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\mipmap-hdpi\" />
@@ -265,6 +267,7 @@
     <Folder Include="Resources\font\" />
     <Folder Include="Behaviors\" />
     <Folder Include="Converters\" />
+    <Folder Include="Views\GiveThanks\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Loyalty.Core\Loyalty.Core.csproj">

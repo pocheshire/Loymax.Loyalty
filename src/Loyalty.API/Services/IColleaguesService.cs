@@ -10,6 +10,6 @@ namespace Loyalty.API.Services
 
         Task<IEnumerable<Colleague>> SearchColleagues(string query);
 
-        Task<bool> GiveThanks(string id, decimal sum);
+        Task<bool> GiveThanks(string id, decimal sum, string comment);
     }
 }
