@@ -87,6 +87,9 @@ namespace Loyalty.Core.ViewModels.GiveThanks
                 return;
             }
             
+            if (string.IsNullOrEmpty(SumTextField.Text) || string.IsNullOrWhiteSpace(SumTextField.Text))
+                return;
+            
             var sum = Decimal.Parse(SumTextField.Text);
             var comment = CommentTextField.Text;
 

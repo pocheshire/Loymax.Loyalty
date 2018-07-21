@@ -31,7 +31,7 @@ namespace Loyalty.Core.Services.Implementations
 
             var user = SessionService.GetUser();
 
-            if (user.Balance - sum <= 0)
+            if (user.Balance - sum < 0)
                 operationResult.SumResult = new ValidationResult { IsError = true, Error = $"Введите меньшую сумму, ваш баланс {user.Balance.ToString("C0", new CultureInfo("ru-RU").NumberFormat)}" };
 
             if (string.IsNullOrEmpty(comment) || string.IsNullOrWhiteSpace(comment))
