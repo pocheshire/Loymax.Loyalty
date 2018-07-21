@@ -32,4 +32,14 @@
         name="profile_recieved_thanks_hint">Здесь будет храниться история\nблагодарностей от ваших коллег.</string>
     <string
         name="givethanks_edittext_hint">Введите количество баллов</string>
+    <string
+        name="give_thanks_title">Благодарочка</string>
+    <string
+        name="give_thanks_hint">Напишите, за что вы благодарите коллегу.\nЭто важно для него.</string>
+    <string
+        name="give_thanks_sum_hint">Сумма</string>
+    <string
+        name="give_thanks_comment_hint">Комментарий</string>
+    <string
+        name="give_thanks_send">ОТПРАВИТЬ</string>
 </resources>

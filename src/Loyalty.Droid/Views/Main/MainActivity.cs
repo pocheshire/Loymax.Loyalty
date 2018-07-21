@@ -13,6 +13,7 @@ using Android.Animation;
 using System;
 using Android.Graphics;
 using Android.Widget;
+using Android.Runtime;
 
 namespace Loyalty.Droid.Views.Main
 {
@@ -23,6 +24,8 @@ namespace Loyalty.Droid.Views.Main
         , WindowSoftInputMode = SoftInput.AdjustResize)]
     public class MainActivity : MvxAppCompatActivity<MainViewModel>, BottomNavigationView.IOnNavigationItemSelectedListener, BottomNavigationView.IOnNavigationItemReselectedListener
     {
+        public FrameLayout ContentModalsShadow { get; private set; }
+        
         private void RemoveTextLabels(BottomNavigationView bottomNavigationView, int menuResId)
         {
             var child = bottomNavigationView.GetChildAt(0);
@@ -68,6 +71,8 @@ namespace Loyalty.Droid.Views.Main
             bottomNavigationView.SetOnNavigationItemReselectedListener(this);
             (bottomNavigationView.LayoutParameters as CoordinatorLayout.LayoutParams).Behavior = new BottomNavigationViewBehavior();
 
+            ContentModalsShadow = FindViewById<FrameLayout>(Resource.Id.content_modals_shadow_background);
+
             base.OnCreate(bundle);
         }
 
@@ -78,6 +83,21 @@ namespace Loyalty.Droid.Views.Main
             var bottomNavigationView = FindViewById<BottomNavigationView>(Resource.Id.bottom_navigation_view);
 
             RemoveTextLabels(bottomNavigationView, Resource.Menu.menu_bottom_navigation);
+        }
+
+        public override void OnBackPressed()
+        {
+            base.OnBackPressed();
+        }
+
+        public override bool OnKeyDown([GeneratedEnum] Keycode keyCode, KeyEvent e)
+        {
+            if (keyCode == Keycode.Back)
+            {
+                
+            }
+
+            return base.OnKeyDown(keyCode, e);
         }
 
         public bool OnNavigationItemSelected(IMenuItem item)

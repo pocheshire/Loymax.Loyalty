@@ -1,6 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:local="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:fitsSystemWindows="true"
+    tools:background="#99000000">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/give_thanks_layout_marginTop"
+        android:background="@drawable/give_thanks_background">
+        <TextView
+            style="@style/AppTheme.TextAppearance.Header4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@@dimen/give_thanks_title_marginTop"
+            android:layout_marginLeft="@dimen/external_margins"
+            android:text="@string/give_thanks_title" />
+        <TextView
+            style="@style/AppTheme.TextAppearance.Hint1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/external_margins"
+            android:text="@string/give_thanks_hint" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/inputLayout_height"
+                    android:layout_marginTop="@dimen/internal_margins"
+                    android:layout_marginLeft="@dimen/external_margins"
+                    android:layout_marginRight="@dimen/external_margins"
+                    android:theme="@style/AppTheme.Control.TextInputLayout"
+                    local:errorTextAppearance="@style/AppTheme.Control.TextInputLayout.ErrorTextAppearance"
+                    local:hintEnabled="true"
+                    local:hintTextAppearance="@style/AppTheme.Control.TextInputLayout.HintTextAppearance"
+                    local:MvxBind="Error SumTextField.Error; ErrorEnabled SumTextField.IsError">
+                    <android.support.design.widget.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:inputType="number"
+                        android:hint="@string/give_thanks_sum_hint"
+                        local:MvxBind="Text SumTextField.Text" />
+                </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/inputLayout_height"
+                    android:layout_marginTop="@dimen/external_margins"
+                    android:layout_marginLeft="@dimen/external_margins"
+                    android:layout_marginRight="@dimen/external_margins"
+                    android:theme="@style/AppTheme.Control.TextInputLayout"
+                    local:errorTextAppearance="@style/AppTheme.Control.TextInputLayout.ErrorTextAppearance"
+                    local:hintEnabled="true"
+                    local:hintTextAppearance="@style/AppTheme.Control.TextInputLayout.HintTextAppearance"
+                    local:MvxBind="Error CommentTextField.Error; ErrorEnabled CommentTextField.IsError">
+                    <android.support.design.widget.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="false"
+                        android:maxLines="999"
+                        android:hint="@string/give_thanks_comment_hint"
+                        local:MvxBind="Text CommentTextField.Text" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+        </ScrollView>
+        <Button
+            style="@style/AppTheme.Control.Button.Base"
+            android:text="@string/give_thanks_send"
+            local:MvxBind="Click SendCommand" />
+    </LinearLayout>
+</LinearLayout>

@@ -6,6 +6,8 @@ using Loyalty.API.Models;
 using Loyalty.Core.ViewModels.GiveThanks;
 using MvvmCross.Commands;
 using MvvmCross.ViewModels;
+using MvvmCross;
+using MvvmCross.Navigation;
 
 namespace Loyalty.Core.ViewModels.Colleagues.Items
 {
@@ -29,6 +31,8 @@ namespace Loyalty.Core.ViewModels.Colleagues.Items
         public ColleagueItemVm(Colleague model)
         {
             Model = model;
+
+            NavigationService = Mvx.Resolve<IMvxNavigationService>();
 
             Id = model.Id;
             FullName = $"{model.Surname} {model.Name}";

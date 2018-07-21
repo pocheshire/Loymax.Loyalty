@@ -29,6 +29,10 @@
         name="profile_bottom_navigation_marginBottom">56dp</dimen>
     <dimen
         name="profile_divider_marginLeft">12dp</dimen>
+    <dimen
+        name="give_thanks_layout_marginTop">24dp</dimen>
+    <dimen
+        name="give_thanks_title_marginTop">32dp</dimen>
 <!--    -->
 <!--  Width & Height  -->
     <dimen
@@ -87,5 +91,7 @@
         name="button_cornerRadius">4dp</dimen>
     <dimen
         name="search_background_cornerRadius">2dp</dimen>
+    <dimen
+        name="give_thanks_background_cornerRadius">16dp</dimen>
 <!--    -->
 </resources>

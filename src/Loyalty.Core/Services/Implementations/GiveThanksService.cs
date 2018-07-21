@@ -55,7 +55,7 @@ namespace Loyalty.Core.Services.Implementations
                     operationResult.Success = true;
                 }
                 else
-                    UserDialog.ShowAlert("К сожалению благодарочка затерялась в пути, пожалуйста, попробуйте еще раз");
+                    UserDialog.ShowAlert("К сожалению, благодарочка затерялась в пути.\nПожалуйста, попробуйте еще раз");
             }
 
             return operationResult;

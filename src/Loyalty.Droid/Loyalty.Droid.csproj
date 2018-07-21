@@ -165,6 +165,7 @@
     <Compile Include="Behaviors\BottomNavigationViewBehavior.cs" />
     <Compile Include="Converters\EmptyImageUrlValueConverter.cs" />
     <Compile Include="Views\GiveThanks\GiveThanksFragment.cs" />
+    <Compile Include="Converters\ErrorFromBooleanValueConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -248,6 +249,7 @@
     <AndroidResource Include="Resources\drawable\fragment_colleagues_toolbar_search_background.xml" />
     <AndroidResource Include="Resources\layout\fragment_profile_achievements_item.axml" />
     <AndroidResource Include="Resources\layout\fragment_give_thanks.axml" />
+    <AndroidResource Include="Resources\drawable\give_thanks_background.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\mipmap-hdpi\" />

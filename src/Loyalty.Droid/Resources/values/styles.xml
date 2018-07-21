@@ -59,7 +59,7 @@
         <item
             name="android:textColor">@color/accent</item>
         <item
-            name="android:lineSpacingExtra">15dp</item>
+            name="android:lineSpacingExtra">9dp</item>
     </style>
     <style
         name  ="AppTheme.TextAppearance.Hint1"

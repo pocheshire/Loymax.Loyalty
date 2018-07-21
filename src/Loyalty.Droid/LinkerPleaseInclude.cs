@@ -17,13 +17,23 @@ namespace Loyalty.Droid
     [Android.Runtime.Preserve(AllMembers = true)]
     public class LinkerPleaseInclude
     {
-        public void Include (MvxCachedImageView imageView)
+        public void Include(MvxCachedImageView imageView)
         {
             imageView.ErrorPlaceholderImagePath += imageView.ErrorPlaceholderImagePath + " ";
             imageView.LoadingPlaceholderImagePath += imageView.LoadingPlaceholderImagePath + " ";
             imageView.Transformations = new List<FFImageLoading.Work.ITransformation>(imageView.Transformations);
         }
-        
+
+        public void Include(Android.Support.Design.Widget.TextInputLayout text)
+        {
+            text.Error = "" + text.Error;
+            text.Hint = "" + text.Hint;
+
+            text.EditText.AfterTextChanged += (sender, args) => text.EditText.Text = "" + text.EditText.Text;
+            text.EditText.Hint = "" + text.EditText.Hint;
+            text.EditText.Error = "" + text.EditText.Error;
+        }
+
         public void Include(Button button)
         {
             button.Click += (s, e) => button.Text = button.Text + "";

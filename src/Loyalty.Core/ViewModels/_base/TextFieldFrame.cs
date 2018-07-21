@@ -12,9 +12,9 @@ namespace Loyalty.Core.ViewModels
             get => _text;
             set
             {
-                IsError = false;
+                SetValidationResult(null);
 
-                SetProperty(ref _text, value, nameof(Text)); 
+                SetProperty(ref _text, value, nameof(Text));
             }
         }
 
@@ -22,12 +22,7 @@ namespace Loyalty.Core.ViewModels
         public string Error
         {
             get => _error;
-            set
-            {
-                IsError = string.IsNullOrEmpty(value);
-
-                SetProperty(ref _error, value, nameof(Error)); 
-            }
+            set => SetProperty(ref _error, value, nameof(Error));
         }
 
         private bool _isError;
@@ -37,9 +32,24 @@ namespace Loyalty.Core.ViewModels
             set => SetProperty(ref _isError, value, nameof(IsError));
         }
 
-        internal void SetValidationResult(ValidationResult sumResult)
+        public TextFieldFrame()
         {
-            throw new NotImplementedException();
+            Error = string.Empty;
+            IsError = false;
+        }
+
+        internal void SetValidationResult(ValidationResult validationResult)
+        {
+            if (validationResult != null)
+            {
+                IsError = validationResult.IsError;
+                Error = validationResult.Error;
+            }
+            else
+            {
+                Error = null;
+                IsError = false;
+            }
         }
     }
 }
