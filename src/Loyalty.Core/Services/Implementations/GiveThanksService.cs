@@ -25,13 +25,15 @@ namespace Loyalty.Core.Services.Implementations
             ColleaguesService = colleaguesService;
         }
 
-        public async Task<GiveThanksResult> GiveThanks(decimal sum, string comment, Colleague colleague)
+        public async Task<GiveThanksResult> GiveThanks(decimal? sum, string comment, Colleague colleague)
         {
             var operationResult = new GiveThanksResult();
 
             var user = SessionService.GetUser();
 
-            if (user.Balance - sum < 0)
+            if (!sum.HasValue)
+                operationResult.SumResult = new ValidationResult { IsError = true, Error = $"Сколько отправить? Ваш баланс {user.Balance.ToString("C0", new CultureInfo("ru-RU").NumberFormat)}" };
+            else if (user.Balance - sum.Value < 0)
                 operationResult.SumResult = new ValidationResult { IsError = true, Error = $"Введите меньшую сумму, ваш баланс {user.Balance.ToString("C0", new CultureInfo("ru-RU").NumberFormat)}" };
 
             if (string.IsNullOrEmpty(comment) || string.IsNullOrWhiteSpace(comment))
@@ -42,7 +44,7 @@ namespace Loyalty.Core.Services.Implementations
                 var result = false;
                 try
                 {
-                    result = await ColleaguesService.GiveThanks(colleague.Id, sum, comment);
+                    result = await ColleaguesService.GiveThanks(colleague.Id, sum.Value, comment);
                 }
                 catch (Exception ex)
                 {
@@ -51,7 +53,7 @@ namespace Loyalty.Core.Services.Implementations
 
                 if (result)
                 {
-                    user.Balance -= sum;
+                    user.Balance -= sum.Value;
                     operationResult.Success = true;
                 }
                 else

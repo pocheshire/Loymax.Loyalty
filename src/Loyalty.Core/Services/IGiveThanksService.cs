@@ -6,6 +6,6 @@ namespace Loyalty.Core.Services
 {
     public interface IGiveThanksService
     {
-        Task<GiveThanksResult> GiveThanks(decimal sum, string comment, Colleague colleague);
+        Task<GiveThanksResult> GiveThanks(decimal? sum, string comment, Colleague colleague);
     }
 }
