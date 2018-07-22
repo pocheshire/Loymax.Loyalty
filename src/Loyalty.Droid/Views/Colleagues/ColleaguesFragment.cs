@@ -17,8 +17,12 @@ using MvvmCross.Platforms.Android.Presenters.Attributes;
 namespace Loyalty.Droid.Views.Colleagues
 {
     [MvxFragmentPresentation(typeof(MainViewModel), Resource.Id.content_frame, false, Resource.Animation.abc_popup_enter, Resource.Animation.abc_popup_exit, isCacheableFragment: true)]
-    public class ColleaguesFragment : MvxFragment<ColleaguesViewModel>
+    public class ColleaguesFragment : MvxFragment<ColleaguesViewModel>, IBackHandledFragment
     {
+        private LinearLayout _customToolbar;
+        private LinearLayout _searchLayout;
+        private Android.Support.V7.Widget.SearchView _searchView;
+
         bool SearchHidden { get; set; } = true;
 
         public ColleaguesFragment()
@@ -29,7 +33,35 @@ namespace Loyalty.Droid.Views.Colleagues
         {
         }
 
-        protected virtual void HideKeyboard()
+        private void HideSearch()
+        {
+            _customToolbar.Visibility = ViewStates.Visible;
+            _searchLayout.Visibility = ViewStates.Gone;
+
+            HideKeyboard();
+
+            SearchHidden = true;
+
+            _searchView.SetQuery(string.Empty, false);
+
+            ViewModel.CancelSearchCommand.Execute();
+        }
+
+        private void ShowSearch()
+        {
+            _customToolbar.Visibility = ViewStates.Gone;
+            _searchLayout.Visibility = ViewStates.Visible;
+
+            _searchView.OnActionViewExpanded();
+            _searchView.Activated = true;
+            _searchView.ClearFocus();
+
+            ShowKeyboard(_searchView);
+
+            SearchHidden = false;
+        }
+
+        private void HideKeyboard()
         {
             View.Post(() =>
             {
@@ -39,7 +71,7 @@ namespace Loyalty.Droid.Views.Colleagues
             });
         }
 
-        protected virtual void ShowKeyboard(View view)
+        private void ShowKeyboard(View view)
         {
             View.Post(() =>
             {
@@ -68,45 +100,27 @@ namespace Loyalty.Droid.Views.Colleagues
             var initialElevation = 6;
             appBarLayout.Elevation = 0;
 
-            var customToolbar = appBarLayout.FindViewById<LinearLayout>(Resource.Id.fragment_colleagues_customToolbar);
-            var searchLayout = appBarLayout.FindViewById<LinearLayout>(Resource.Id.fragment_colleagues_toolbar_searchLayout);
+            _customToolbar = appBarLayout.FindViewById<LinearLayout>(Resource.Id.fragment_colleagues_customToolbar);
+            _searchLayout = appBarLayout.FindViewById<LinearLayout>(Resource.Id.fragment_colleagues_toolbar_searchLayout);
 
-            var searchView = searchLayout.FindViewById<Android.Support.V7.Widget.SearchView>(Resource.Id.fragment_colleagues_toolbar_searchView);
-            searchView.QueryTextSubmit += (sender, e) =>
+            _searchView = _searchLayout.FindViewById<Android.Support.V7.Widget.SearchView>(Resource.Id.fragment_colleagues_toolbar_searchView);
+            _searchView.QueryTextSubmit += (sender, e) =>
             {
                 ViewModel.SearchCommand.Execute(e.Query);
             };
 
             var searchButton = appBarLayout.FindViewById<ImageButton>(Resource.Id.fragment_colleagues_toolbar_search);
-            searchButton.Click += (sender, e) => 
+            searchButton.Click += (sender, e) =>
             {
-                customToolbar.Visibility = ViewStates.Gone;
-                searchLayout.Visibility = ViewStates.Visible;
-
                 searchButton.ClearFocus();
 
-                searchView.OnActionViewExpanded();
-                searchView.Activated = true;
-                searchView.ClearFocus();
-
-                ShowKeyboard(searchView);
-
-                SearchHidden = false;
+                ShowSearch();
             };
 
             var closeSearchButton = appBarLayout.FindViewById<ImageButton>(Resource.Id.fragment_colleagues_toolbar_closeSearch);
-            closeSearchButton.Click += (sender, e) => 
+            closeSearchButton.Click += (sender, e) =>
             {
-                customToolbar.Visibility = ViewStates.Visible;
-                searchLayout.Visibility = ViewStates.Gone;
-
-                HideKeyboard();
-
-                SearchHidden = true;
-
-                searchView.SetQuery(string.Empty, false);
-
-                ViewModel.CancelSearchCommand.Execute();
+                HideSearch();
             };
 
             var swipeRefreshLayout = view.FindViewById<MvxSwipeRefreshLayout>(Resource.Id.fragment_colleagues_swipeRefreshLayout);
@@ -123,6 +137,18 @@ namespace Loyalty.Droid.Views.Colleagues
             base.OnResume();
 
             Activity.Window.SetSoftInputMode(SoftInput.AdjustPan);
+        }
+
+        public bool OnKeyDown([GeneratedEnum] Keycode keyCode, KeyEvent e)
+        {
+            if (!SearchHidden)
+            {
+                HideSearch();
+
+                return true;
+            }
+
+            return false;
         }
 
         private class OnScrollListener : RecyclerView.OnScrollListener

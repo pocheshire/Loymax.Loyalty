@@ -153,7 +153,7 @@ namespace Loyalty.Core.ViewModels.Colleagues
             Loading = false;
         }
 
-        private ColleagueItemVm SetupItem(API.Models.Colleague model) => new ColleagueItemVm(model);
+        private ColleagueItemVm SetupItem(API.Models.Colleague model) => new ColleagueItemVm(model, UserDialog);
 
         private Task OnItemSelected(ColleagueItemVm item)
         {

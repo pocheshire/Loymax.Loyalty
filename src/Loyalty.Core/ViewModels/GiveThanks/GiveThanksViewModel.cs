@@ -79,14 +79,6 @@ namespace Loyalty.Core.ViewModels.GiveThanks
         {
             Loading = true;
 
-            var user = SessionService.GetUser();
-            if (user.Balance <= 0)
-            {
-                UserDialog.ShowAlert("Вы отблагодарили свои коллег сполна, спасибо!");
-
-                return;
-            }
-
             decimal? sum = null;
             if (!string.IsNullOrEmpty(SumTextField.Text) && !string.IsNullOrWhiteSpace(SumTextField.Text))
                 sum = Decimal.Parse(SumTextField.Text);

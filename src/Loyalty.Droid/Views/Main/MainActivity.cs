@@ -1,19 +1,18 @@
-﻿using Android.App;
+﻿using System.Linq;
+using Android.Animation;
+using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Android.Runtime;
 using Android.Support.Design.Widget;
+using Android.Support.V7.View.Menu;
+using Android.Util;
 using Android.Views;
+using Android.Widget;
 using Loyalty.Core.ViewModels.Main;
 using Loyalty.Droid.Behaviors;
 using MvvmCross.Droid.Support.V7.AppCompat;
 using MvvmCross.Platforms.Android.Presenters.Attributes;
-using Android.Support.V7.View.Menu;
-using Android.Util;
-using Android.Animation;
-using System;
-using Android.Graphics;
-using Android.Widget;
-using Android.Runtime;
 
 namespace Loyalty.Droid.Views.Main
 {
@@ -25,39 +24,30 @@ namespace Loyalty.Droid.Views.Main
     public class MainActivity : MvxAppCompatActivity<MainViewModel>, BottomNavigationView.IOnNavigationItemSelectedListener, BottomNavigationView.IOnNavigationItemReselectedListener
     {
         public FrameLayout ContentModalsShadow { get; private set; }
-        
-        private void RemoveTextLabels(BottomNavigationView bottomNavigationView, int menuResId)
+
+        private void RemoveTextLabels(BottomNavigationView bottomNavigationView)
         {
             var child = bottomNavigationView.GetChildAt(0);
 
             if (child == null)
                 return;
 
-            if (child is IMenuView)
+            var menuView = (ViewGroup)child;
+            for (int j = 0; j < menuView.ChildCount; j++)
             {
-                var menuView = (ViewGroup)child;
-                for (int j = 0; j < menuView.ChildCount; j++)
+                var viewGroup = (ViewGroup)menuView.GetChildAt(j);
+                for (int i = 0; i < viewGroup.ChildCount; i++)
                 {
-                    var view = menuView.GetChildAt(j);
-
-                    if (view is IMenuViewItemView)
+                    var v = viewGroup.GetChildAt(i);
+                    if (v is ViewGroup)
                     {
-                        var viewGroup = (ViewGroup)view;
-                        for (int i = 0; i < viewGroup.ChildCount; i++)
-                        {
-                            var v = viewGroup.GetChildAt(i);
-                            if (v is ViewGroup)
-                            {
-                                viewGroup.RemoveViewAt(i);
-                            }
-                        }
-
-                        var padding = TypedValue.ApplyDimension(ComplexUnitType.Dip, 16, Resources.DisplayMetrics);
-
-                        viewGroup.SetPadding(viewGroup.PaddingLeft, (int)padding / 2, viewGroup.PaddingRight, viewGroup.PaddingBottom);
+                        viewGroup.RemoveViewAt(i);
                     }
                 }
 
+                var padding = TypedValue.ApplyDimension(ComplexUnitType.Dip, 16, Resources.DisplayMetrics);
+
+                viewGroup.SetPadding(viewGroup.PaddingLeft, (int)padding / 2, viewGroup.PaddingRight, viewGroup.PaddingBottom);
             }
         }
 
@@ -81,23 +71,20 @@ namespace Loyalty.Droid.Views.Main
             base.OnResume();
 
             var bottomNavigationView = FindViewById<BottomNavigationView>(Resource.Id.bottom_navigation_view);
-
-            RemoveTextLabels(bottomNavigationView, Resource.Menu.menu_bottom_navigation);
-        }
-
-        public override void OnBackPressed()
-        {
-            base.OnBackPressed();
+            RemoveTextLabels(bottomNavigationView);
         }
 
         public override bool OnKeyDown([GeneratedEnum] Keycode keyCode, KeyEvent e)
         {
+            bool handled = false;
+
             if (keyCode == Keycode.Back)
             {
-                
+                if (SupportFragmentManager?.Fragments?.Count == 1 && SupportFragmentManager.Fragments.First() is IBackHandledFragment backHandledFragment)
+                    handled = backHandledFragment.OnKeyDown(keyCode, e);
             }
 
-            return base.OnKeyDown(keyCode, e);
+            return handled ? true : base.OnKeyDown(keyCode, e);
         }
 
         public bool OnNavigationItemSelected(IMenuItem item)

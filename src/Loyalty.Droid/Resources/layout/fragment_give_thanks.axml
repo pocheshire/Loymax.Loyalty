@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/give_thanks_layout_marginTop"
+        android:clickable="true"
         android:background="@drawable/give_thanks_background">
         <TextView
             style="@style/AppTheme.TextAppearance.Header4"

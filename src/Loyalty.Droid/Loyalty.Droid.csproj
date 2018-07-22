@@ -166,6 +166,7 @@
     <Compile Include="Converters\EmptyImageUrlValueConverter.cs" />
     <Compile Include="Views\GiveThanks\GiveThanksFragment.cs" />
     <Compile Include="Converters\ErrorFromBooleanValueConverter.cs" />
+    <Compile Include="Views\_base\IBackHandledFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -245,18 +246,23 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_funny_avatar_3.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_funny_avatar_4.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_funny_error.png" />
-    <AndroidResource Include="Resources\menu\menu_colleagues_toolbar.xml" />
     <AndroidResource Include="Resources\drawable\fragment_colleagues_toolbar_search_background.xml" />
     <AndroidResource Include="Resources\layout\fragment_profile_achievements_item.axml" />
     <AndroidResource Include="Resources\layout\fragment_give_thanks.axml" />
     <AndroidResource Include="Resources\drawable\give_thanks_background.xml" />
+    <AndroidResource Include="Resources\drawable\ic_launcher.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_launcher_round.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\mipmap-hdpi\" />
-    <Folder Include="Resources\mipmap-mdpi\" />
-    <Folder Include="Resources\mipmap-xhdpi\" />
-    <Folder Include="Resources\mipmap-xxhdpi\" />
-    <Folder Include="Resources\mipmap-xxxhdpi\" />
     <Folder Include="Resources\drawable\" />
     <Folder Include="Views\" />
     <Folder Include="Views\Main\" />
@@ -270,6 +276,7 @@
     <Folder Include="Behaviors\" />
     <Folder Include="Converters\" />
     <Folder Include="Views\GiveThanks\" />
+    <Folder Include="Views\_base\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Loyalty.Core\Loyalty.Core.csproj">
